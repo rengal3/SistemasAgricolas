@@ -12,12 +12,14 @@ package asistencia.cliente;
 public class AsistenciaCliente {
 
     public static String nombre;
+    public static String apellido;
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
         // TODO code application logic here
         nombre="renato";
+        apellido="Vilchez";
     }
     
 }

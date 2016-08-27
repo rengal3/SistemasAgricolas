@@ -12,6 +12,7 @@ package asistencia.cliente;
 public class AsistenciaCliente {
 
     public static String nombre;
+    public int i=0;
     public static String apellido;
     /**
      * @param args the command line arguments

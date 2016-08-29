@@ -30,7 +30,7 @@ import javax.validation.constraints.Size;
  * @author Renato
  */
 @Entity
-@Table(name = "ADMISION", catalog = "AsistenciaAgricola", schema = "dbo")
+@Table(name = "admision")
 @NamedQueries({
     @NamedQuery(name = "Admision.findAll", query = "SELECT a FROM Admision a"),
     @NamedQuery(name = "Admision.findByIdAdmision", query = "SELECT a FROM Admision a WHERE a.idAdmision = :idAdmision"),
@@ -83,11 +83,11 @@ public class Admision implements Serializable {
     @NotNull
     @Column(name = "REALIZADO", nullable = false)
     private int realizado;
-    @Size(max = 2147483647)
-    @Column(name = "OBSERVACION", length = 2147483647)
+    @Size(max = 10485760)
+    @Column(name = "OBSERVACION", length = 10485760)
     private String observacion;
-    @Size(max = 2147483647)
-    @Column(name = "MODIFICO", length = 2147483647)
+    @Size(max = 10485760)
+    @Column(name = "MODIFICO", length = 10485760)
     private String modifico;
     @JoinColumn(name = "ID_PERSONAL", referencedColumnName = "ID_PERSONAL")
     @ManyToOne(fetch = FetchType.LAZY)

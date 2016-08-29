@@ -29,7 +29,7 @@ import javax.validation.constraints.Size;
  * @author Renato
  */
 @Entity
-@Table(name = "FECHAS_DE_REGISTRO", catalog = "AsistenciaAgricola", schema = "dbo")
+@Table(name = "fechas_de_registro")
 @NamedQueries({
     @NamedQuery(name = "FechasDeRegistro.findAll", query = "SELECT f FROM FechasDeRegistro f"),
     @NamedQuery(name = "FechasDeRegistro.findById", query = "SELECT f FROM FechasDeRegistro f WHERE f.id = :id"),
@@ -50,8 +50,8 @@ public class FechasDeRegistro implements Serializable {
     @Column(name = "CONCLUYE")
     @Temporal(TemporalType.TIMESTAMP)
     private Date concluye;
-    @Size(max = 2147483647)
-    @Column(name = "OBSERVACION", length = 2147483647)
+    @Size(max = 10485760)
+    @Column(name = "OBSERVACION", length = 10485760)
     private String observacion;
     @JoinColumn(name = "ID_PERSONAL", referencedColumnName = "ID_PERSONAL")
     @ManyToOne(fetch = FetchType.LAZY)

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+  <persistence-unit name="AdministrativoAgricolaPU" transaction-type="JTA">
+    <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+    <jta-data-source>jdbc/asistencia</jta-data-source>
+    <class>com.asistencia.entity.Admision</class>
+    <class>com.asistencia.entity.AdmisionHorario</class>
+    <class>com.asistencia.entity.AdmisionTipos</class>
+    <class>com.asistencia.entity.Afp</class>
+    <class>com.asistencia.entity.CentroAsistencial</class>
+    <class>com.asistencia.entity.Ciudades</class>
+    <class>com.asistencia.entity.Comisiones</class>
+    <class>com.asistencia.entity.Dias</class>
+    <class>com.asistencia.entity.FechasDeRegistro</class>
+    <class>com.asistencia.entity.Hijos</class>
+    <class>com.asistencia.entity.Personal</class>
+    <class>com.asistencia.entity.PersonalEstadoCivil</class>
+    <class>com.asistencia.entity.TipoDeSeguro</class>
+    <class>com.asistencia.entity.TipoObrero</class>
+    <class>com.asistencia.entity.TipoSueldo</class>
+    <class>com.asistencia.entity.TipoTrabajador</class>
+    <exclude-unlisted-classes>true</exclude-unlisted-classes>
+    <properties>
+      <property name="javax.persistence.schema-generation.database.action" value="create"/>
+      <property name="eclipselink.ddl-generation" value="create-tables"/>
+    </properties>
+  </persistence-unit>
+</persistence>

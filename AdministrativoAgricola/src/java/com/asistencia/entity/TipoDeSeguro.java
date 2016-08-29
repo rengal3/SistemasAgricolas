@@ -27,7 +27,7 @@ import javax.validation.constraints.Size;
  * @author Renato
  */
 @Entity
-@Table(name = "TIPO_DE_SEGURO", catalog = "AsistenciaAgricola", schema = "dbo")
+@Table(name = "tipo_de_seguro")
 @NamedQueries({
     @NamedQuery(name = "TipoDeSeguro.findAll", query = "SELECT t FROM TipoDeSeguro t"),
     @NamedQuery(name = "TipoDeSeguro.findByIdTipoSeguro", query = "SELECT t FROM TipoDeSeguro t WHERE t.idTipoSeguro = :idTipoSeguro"),
@@ -42,8 +42,8 @@ public class TipoDeSeguro implements Serializable {
     @GeneratedValue(strategy=GenerationType.SEQUENCE)
     @Column(name = "ID_TIPO_SEGURO", nullable = false)
     private Integer idTipoSeguro;
-    @Size(max = 2147483647)
-    @Column(name = "TIPO_SEGURO", length = 2147483647)
+    @Size(max = 10485760)
+    @Column(name = "TIPO_SEGURO", length = 10485760)
     private String tipoSeguro;
     // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
     @Column(name = "PORCENTAJE", precision = 19, scale = 4)

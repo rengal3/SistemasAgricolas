@@ -33,7 +33,7 @@ import javax.validation.constraints.Size;
  * @author Renato
  */
 @Entity
-@Table(name = "PERSONAL", catalog = "AsistenciaAgricola", schema = "dbo")
+@Table(name = "personal")
 @NamedQueries({
     @NamedQuery(name = "Personal.findAll", query = "SELECT p FROM Personal p"),
     @NamedQuery(name = "Personal.findByIdPersonal", query = "SELECT p FROM Personal p WHERE p.idPersonal = :idPersonal"),
@@ -75,22 +75,22 @@ public class Personal implements Serializable {
     private Date fechaNacimiento;
     @Column(name = "EDAD")
     private Integer edad;
-    @Size(max = 2147483647)
-    @Column(name = "NOMBRES", length = 2147483647)
+    @Size(max = 10485760)
+    @Column(name = "NOMBRES", length = 10485760)
     private String nombres;
-    @Size(max = 2147483647)
-    @Column(name = "A_PATERNO", length = 2147483647)
+    @Size(max = 10485760)
+    @Column(name = "A_PATERNO", length = 10485760)
     private String aPaterno;
-    @Size(max = 2147483647)
-    @Column(name = "A_MATERNO", length = 2147483647)
+    @Size(max = 10485760)
+    @Column(name = "A_MATERNO", length = 10485760)
     private String aMaterno;
     @Lob
     @Column(name = "FOTO")
     private byte[] foto;
     @Column(name = "SEXO")
     private Integer sexo;
-    @Size(max = 2147483647)
-    @Column(name = "DIRECCION", length = 2147483647)
+    @Size(max = 10485760)
+    @Column(name = "DIRECCION", length = 10485760)
     private String direccion;
     @Size(max = 50)
     @Column(name = "FIJO", length = 50)
@@ -98,8 +98,8 @@ public class Personal implements Serializable {
     @Size(max = 50)
     @Column(name = "CELULAR", length = 50)
     private String celular;
-    @Size(max = 2147483647)
-    @Column(name = "MAIL", length = 2147483647)
+    @Size(max = 10485760)
+    @Column(name = "MAIL", length = 10485760)
     private String mail;
     @Column(name = "F_INGRESO")
     @Temporal(TemporalType.TIMESTAMP)
@@ -111,11 +111,11 @@ public class Personal implements Serializable {
     private Integer nHijos;
     @Column(name = "ASIGNACION_FAMILIAR")
     private Integer asignacionFamiliar;
-    @Size(max = 2147483647)
-    @Column(name = "AUTOGENERADO", length = 2147483647)
+    @Size(max = 10485760)
+    @Column(name = "AUTOGENERADO", length = 10485760)
     private String autogenerado;
-    @Size(max = 2147483647)
-    @Column(name = "CUSP", length = 2147483647)
+    @Size(max = 10485760)
+    @Column(name = "CUSP", length = 10485760)
     private String cusp;
     @Column(name = "RIMAC", precision = 19, scale = 4)
     private BigDecimal rimac;

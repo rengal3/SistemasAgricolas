@@ -26,7 +26,7 @@ import javax.validation.constraints.Size;
  * @author Renato
  */
 @Entity
-@Table(name = "CENTRO_ASISTENCIAL", catalog = "AsistenciaAgricola", schema = "dbo")
+@Table(name = "centro_asistencial")
 @NamedQueries({
     @NamedQuery(name = "CentroAsistencial.findAll", query = "SELECT c FROM CentroAsistencial c"),
     @NamedQuery(name = "CentroAsistencial.findByIdCentroAsistencial", query = "SELECT c FROM CentroAsistencial c WHERE c.idCentroAsistencial = :idCentroAsistencial"),
@@ -41,11 +41,11 @@ public class CentroAsistencial implements Serializable {
     @GeneratedValue(strategy=GenerationType.SEQUENCE)
     @Column(name = "ID_CENTRO_ASISTENCIAL", nullable = false)
     private Integer idCentroAsistencial;
-    @Size(max = 2147483647)
-    @Column(name = "CENTRO_ASISTENCIAL", length = 2147483647)
+    @Size(max = 10485760)
+    @Column(name = "CENTRO_ASISTENCIAL", length = 10485760)
     private String centroAsistencial;
-    @Size(max = 2147483647)
-    @Column(name = "DIRECCION", length = 2147483647)
+    @Size(max = 10485760)
+    @Column(name = "DIRECCION", length = 10485760)
     private String direccion;
     @Column(name = "MOSTRAR")
     private Integer mostrar;

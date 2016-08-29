@@ -26,7 +26,7 @@ import javax.validation.constraints.Size;
  * @author Renato
  */
 @Entity
-@Table(name = "TIPO_OBRERO", catalog = "AsistenciaAgricola", schema = "dbo")
+@Table(name = "tipo_obrero")
 @NamedQueries({
     @NamedQuery(name = "TipoObrero.findAll", query = "SELECT t FROM TipoObrero t"),
     @NamedQuery(name = "TipoObrero.findByIdTipoObrero", query = "SELECT t FROM TipoObrero t WHERE t.idTipoObrero = :idTipoObrero"),
@@ -41,8 +41,8 @@ public class TipoObrero implements Serializable {
     @GeneratedValue(strategy=GenerationType.SEQUENCE)
     @Column(name = "ID_TIPO_OBRERO", nullable = false)
     private Integer idTipoObrero;
-    @Size(max = 2147483647)
-    @Column(name = "TIPO_OBRERO", length = 2147483647)
+    @Size(max = 10485760)
+    @Column(name = "TIPO_OBRERO", length = 10485760)
     private String tipoObrero;
     @Column(name = "DISPERSO")
     private Integer disperso;

@@ -7,6 +7,7 @@ package asistencia.delegate;
 
 import com.asistencia.TO.AdmisionTipoTO;
 import com.asistencia.facade.AsistenciaFacadeRemote;
+import java.util.List;
 import java.util.Properties;
 import javax.naming.InitialContext;
 
@@ -48,6 +49,10 @@ public class GestionAsistenciaDelegate {
 
     public boolean insertaAdmisionTipo(AdmisionTipoTO admision) throws Exception {
         return gestionFacade.insertarAdmisionTipo(admision);
+    }
+
+    public List<AdmisionTipoTO> getListaAdmisionTipoTO() throws Exception {
+        return gestionFacade.getListaAdmisionTipoTO();
     }
 
    

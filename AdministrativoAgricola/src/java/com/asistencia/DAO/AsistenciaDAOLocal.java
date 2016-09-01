@@ -6,6 +6,7 @@
 package com.asistencia.DAO;
 
 import com.asistencia.TO.AdmisionTipoTO;
+import java.util.List;
 import javax.ejb.Local;
 
 /**
@@ -16,5 +17,7 @@ import javax.ejb.Local;
 public interface AsistenciaDAOLocal {
 
     boolean insertarAdmisionTipo(AdmisionTipoTO admisionTipo) throws Exception;
+
+    List<AdmisionTipoTO> getAdmisionTipoTO() throws Exception;
     
 }

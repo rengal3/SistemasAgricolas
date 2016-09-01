@@ -8,6 +8,7 @@ package com.asistencia.DAO;
 import com.asistencia.TO.AdmisionTipoTO;
 import com.asistencia.entity.DAO.AdmisionTiposFacadeLocal;
 import com.asistencia.helper.Conversiones;
+import java.util.List;
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
 
@@ -28,7 +29,11 @@ public class AsistenciaDAO implements AsistenciaDAOLocal {
         return retorno;
     }
 
-    // Add business logic below. (Right-click in editor and choose
-    // "Insert Code > Add Business Method")
+    @Override
+    public List<AdmisionTipoTO> getAdmisionTipoTO() throws Exception {
+        return Conversiones.getListAdmisionTipoTO(admisionTiposEJB.findAll());
+    }
+
+    
     
 }

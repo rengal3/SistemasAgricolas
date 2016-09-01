@@ -7,6 +7,7 @@ package com.asistencia.business;
 
 import com.asistencia.DAO.AsistenciaDAOLocal;
 import com.asistencia.TO.AdmisionTipoTO;
+import java.util.List;
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
 
@@ -23,6 +24,11 @@ public class AsistenciaBusiness implements AsistenciaBusinessLocal {
     @Override
     public boolean insertarAdmisionTipo(AdmisionTipoTO admision) throws Exception {
         return asistenciaDao.insertarAdmisionTipo(admision);
+    }
+
+    @Override
+    public List<AdmisionTipoTO> getAdmisionTipoTO() throws Exception {
+        return asistenciaDao.getAdmisionTipoTO();
     }
 
     

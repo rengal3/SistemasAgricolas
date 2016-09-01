@@ -6,6 +6,7 @@
 package com.asistencia.business;
 
 import com.asistencia.TO.AdmisionTipoTO;
+import java.util.List;
 import javax.ejb.Local;
 
 /**
@@ -16,5 +17,6 @@ import javax.ejb.Local;
 public interface AsistenciaBusinessLocal {
 
     boolean insertarAdmisionTipo(AdmisionTipoTO admision) throws Exception;
+    List<AdmisionTipoTO> getAdmisionTipoTO() throws Exception;
     
 }

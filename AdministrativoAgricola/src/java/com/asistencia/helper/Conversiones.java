@@ -7,6 +7,8 @@ package com.asistencia.helper;
 
 import com.asistencia.TO.AdmisionTipoTO;
 import com.asistencia.entity.AdmisionTipos;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -21,5 +23,14 @@ public class Conversiones {
         adm.setMostrar(admision.getMostrar());
         adm.setSigla(admision.getSigla());
         return adm;                
+    }
+    
+    public static List<AdmisionTipoTO> getListAdmisionTipoTO(List<AdmisionTipos> lista) throws Exception{
+        List<AdmisionTipoTO> retorno=new ArrayList();
+        for(AdmisionTipos a:lista){
+            retorno.add(new AdmisionTipoTO(a.getId(),a.getDescripcion(),a.getSigla(),a.getMostrar()));
+        }
+        
+        return retorno;
     }
 }

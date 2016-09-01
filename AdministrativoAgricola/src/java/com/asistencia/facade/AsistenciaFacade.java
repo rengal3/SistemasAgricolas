@@ -7,6 +7,7 @@ package com.asistencia.facade;
 
 import com.asistencia.TO.AdmisionTipoTO;
 import com.asistencia.business.AsistenciaBusinessLocal;
+import java.util.List;
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
 
@@ -25,5 +26,11 @@ public class AsistenciaFacade implements AsistenciaFacadeRemote {
         return asistenciaBusiness.insertarAdmisionTipo(admision);
     }
 
+    @Override
+    public List<AdmisionTipoTO> getListaAdmisionTipoTO() throws Exception {
+        return asistenciaBusiness.getAdmisionTipoTO();
+    }
+
+    
     
 }

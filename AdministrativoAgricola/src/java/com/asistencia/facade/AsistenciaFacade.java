@@ -5,6 +5,7 @@
  */
 package com.asistencia.facade;
 
+import com.asistencia.TO.AdmisionTO;
 import com.asistencia.TO.AdmisionTipoTO;
 import com.asistencia.business.AsistenciaBusinessLocal;
 import java.util.List;
@@ -29,6 +30,11 @@ public class AsistenciaFacade implements AsistenciaFacadeRemote {
     @Override
     public List<AdmisionTipoTO> getListaAdmisionTipoTO() throws Exception {
         return asistenciaBusiness.getAdmisionTipoTO();
+    }
+
+    @Override
+    public List<AdmisionTO> getListaAdmision() throws Exception {
+        return asistenciaBusiness.getListaAdmision();
     }
 
     

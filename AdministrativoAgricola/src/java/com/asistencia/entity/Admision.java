@@ -99,6 +99,10 @@ public class Admision implements Serializable {
     @ManyToOne(fetch = FetchType.LAZY)
     private AdmisionTipos idTipos;
 
+    @JoinColumn(name = "id_empresa", referencedColumnName = "id_empresa")
+    @ManyToOne(optional = false)
+    private Empresa empresa;
+    
     public Admision() {
     }
 
@@ -239,6 +243,15 @@ public class Admision implements Serializable {
         this.idTipos = idTipos;
     }
 
+    public Empresa getEmpresa() {
+        return empresa;
+    }
+
+    public void setEmpresa(Empresa empresa) {
+        this.empresa = empresa;
+    }
+
+    
     @Override
     public int hashCode() {
         int hash = 0;
@@ -258,6 +271,7 @@ public class Admision implements Serializable {
         }
         return true;
     }
+    
 
     @Override
     public String toString() {

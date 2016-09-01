@@ -13,6 +13,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
@@ -60,6 +62,9 @@ public class AdmisionHorario implements Serializable {
     @Column(name = "MOSTRAR")
     private Integer mostrar;
 
+    @JoinColumn(name = "id_empresa", referencedColumnName = "id_empresa")
+    @ManyToOne(optional = false)
+    private Empresa empresa;
     public AdmisionHorario() {
     }
 
@@ -123,6 +128,15 @@ public class AdmisionHorario implements Serializable {
         this.mostrar = mostrar;
     }
 
+    public Empresa getEmpresa() {
+        return empresa;
+    }
+
+    public void setEmpresa(Empresa empresa) {
+        this.empresa = empresa;
+    }
+
+    
     @Override
     public int hashCode() {
         int hash = 0;

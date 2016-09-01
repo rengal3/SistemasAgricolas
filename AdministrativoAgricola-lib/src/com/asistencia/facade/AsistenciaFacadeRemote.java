@@ -5,6 +5,7 @@
  */
 package com.asistencia.facade;
 
+import com.asistencia.TO.AdmisionTO;
 import com.asistencia.TO.AdmisionTipoTO;
 import java.util.List;
 import javax.ejb.Remote;
@@ -19,5 +20,7 @@ public interface AsistenciaFacadeRemote {
     boolean insertarAdmisionTipo(AdmisionTipoTO admision) throws Exception;
 
     List<AdmisionTipoTO> getListaAdmisionTipoTO() throws Exception;
+    
+    List<AdmisionTO> getListaAdmision() throws Exception;
     
 }

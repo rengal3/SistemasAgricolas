@@ -5,6 +5,7 @@
  */
 package asistencia.delegate;
 
+import com.asistencia.TO.AdmisionTO;
 import com.asistencia.TO.AdmisionTipoTO;
 import com.asistencia.facade.AsistenciaFacadeRemote;
 import java.util.List;
@@ -53,6 +54,10 @@ public class GestionAsistenciaDelegate {
 
     public List<AdmisionTipoTO> getListaAdmisionTipoTO() throws Exception {
         return gestionFacade.getListaAdmisionTipoTO();
+    }
+
+    public List<AdmisionTO> getListaAdmision() throws Exception {
+        return gestionFacade.getListaAdmision();
     }
 
    

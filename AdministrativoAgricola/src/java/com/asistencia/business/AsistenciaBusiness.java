@@ -23,8 +23,8 @@ public class AsistenciaBusiness implements AsistenciaBusinessLocal {
     AsistenciaDAOLocal asistenciaDao;
     
     @Override
-    public boolean insertarAdmisionTipo(AdmisionTipoTO admision) throws Exception {
-        return asistenciaDao.insertarAdmisionTipo(admision);
+    public void insertarAdmisionTipo(AdmisionTipoTO admision) throws Exception {
+         asistenciaDao.insertarAdmisionTipo(admision);
     }
 
     @Override

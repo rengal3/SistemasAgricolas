@@ -119,14 +119,13 @@ public class jfAdministraAsistencia extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         try {
             // TODO add your handling code here:
-            //this.asistencias=GestionAsistenciaDelegate.getInstance().getListaAdmision();
+            this.asistencias=GestionAsistenciaDelegate.getInstance().getListaAdmision();
         } catch (Exception ex) {
             Logger.getLogger(jfAdministraAsistencia.class.getName()).log(Level.SEVERE, null, ex);
             ex.printStackTrace();
             this.asistencias=new ArrayList(1);
         }
-        this.asistencias=new ArrayList(1);
-        asistencias.add(new AdmisionTO(4,"20203030","08:00:00","14:00:00",BigDecimal.TEN,"ALMACENERO","NORMAL","-"));
+        
         this.actualizaTablaAsistencias(asistencias);
     }//GEN-LAST:event_jButton1ActionPerformed
 

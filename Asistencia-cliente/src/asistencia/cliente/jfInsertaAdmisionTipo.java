@@ -127,9 +127,9 @@ public class jfInsertaAdmisionTipo extends javax.swing.JFrame {
         
         try{
             
-            if(GestionAsistenciaDelegate.getInstance().insertaAdmisionTipo(admision)){
+            GestionAsistenciaDelegate.getInstance().insertaAdmisionTipo(admision);
                 System.out.println("Se guardo correctamente");
-            }
+            
         }catch(Exception e){
             e.printStackTrace();
         }

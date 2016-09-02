@@ -48,8 +48,8 @@ public class GestionAsistenciaDelegate {
     return gestionDelegate;
   }
 
-    public boolean insertaAdmisionTipo(AdmisionTipoTO admision) throws Exception {
-        return gestionFacade.insertarAdmisionTipo(admision);
+    public void insertaAdmisionTipo(AdmisionTipoTO admision) throws Exception {
+        gestionFacade.insertarAdmisionTipo(admision);
     }
 
     public List<AdmisionTipoTO> getListaAdmisionTipoTO() throws Exception {

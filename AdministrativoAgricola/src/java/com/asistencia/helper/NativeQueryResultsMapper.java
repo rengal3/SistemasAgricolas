@@ -5,11 +5,13 @@
  */
 package com.asistencia.helper;
 
+import com.helper.NativeQueryResultColumn;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import org.apache.commons.beanutils.BeanUtils;
 import org.slf4j.Logger;
 
 import org.slf4j.LoggerFactory;
@@ -21,7 +23,7 @@ import org.slf4j.LoggerFactory;
 public class NativeQueryResultsMapper {
     private static Logger log = LoggerFactory.getLogger(NativeQueryResultsMapper.class);
 
-    /*
+    
     public static <T> List<T> map(List<Object[]> objectArrayList, Class<T> genericType) {
         List<T> ret = new ArrayList<T>();
         List<Field> mappingFields = getNativeQueryResultColumnAnnotatedFields(genericType);
@@ -45,7 +47,7 @@ public class NativeQueryResultsMapper {
         }
         return ret;
     }
-*/
+
     // Get ordered list of fields
     private static <T> List<Field> getNativeQueryResultColumnAnnotatedFields(Class<T> genericType) {
         Field[] fields = genericType.getDeclaredFields();

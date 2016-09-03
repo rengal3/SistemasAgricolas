@@ -36,6 +36,16 @@ public class AsistenciaFacade implements AsistenciaFacadeRemote {
     public List<AdmisionTO> getListaAdmision() throws Exception {
         return asistenciaBusiness.getListaAdmision();
     }
+    
+//    @Override
+//     public void modificarAdmisionTipo(AdmisionTipoTO admision)throws Exception{
+//         asistenciaBusiness.modificarAdmisionTipo(admision);
+//     }
+//    @Override
+//     public void eliminaAdmisionTipos(AdmisionTipoTO admision)throws Exception{
+//         asistenciaBusiness.eliminaAdmisionTipos(admision);
+//     
+//     }
 
     
     

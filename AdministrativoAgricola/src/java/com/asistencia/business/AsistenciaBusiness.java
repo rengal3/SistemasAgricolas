@@ -37,6 +37,14 @@ public class AsistenciaBusiness implements AsistenciaBusinessLocal {
         return asistenciaDao.getListaAdmision();
     }
 
-    
-    
+//    @Override
+//     public void modificarAdmisionTipo(AdmisionTipoTO admision)throws Exception{
+//         asistenciaDao.modificarAdmisionTipo(admision);
+//     }
+//    @Override
+//     public void eliminaAdmisionTipos(AdmisionTipoTO admision)throws Exception{
+//         asistenciaDao.eliminaAdmisionTipos(admision);
+//     
+//     }
+//    
 }

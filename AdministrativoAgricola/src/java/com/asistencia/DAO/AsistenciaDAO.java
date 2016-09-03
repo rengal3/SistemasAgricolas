@@ -7,6 +7,7 @@ package com.asistencia.DAO;
 
 import com.asistencia.TO.AdmisionTO;
 import com.asistencia.TO.AdmisionTipoTO;
+import com.asistencia.entity.AdmisionTipos;
 import com.asistencia.entity.DAO.AdmisionTiposFacadeLocal;
 import com.asistencia.helper.Conversiones;
 import java.util.List;
@@ -52,6 +53,26 @@ public class AsistenciaDAO implements AsistenciaDAOLocal {
                     " ADMISION_TIPOS ON ADMISION.ID_TIPOS = ADMISION_TIPOS.ID");
         return Conversiones.convertirTOAdmision(consulta.getResultList());
     }
+    
+//    @Override
+//    public void modificarAdmisionTipo(AdmisionTipoTO admision)throws Exception{
+//        Integer idtipo=admision.getId();
+//        AdmisionTipos adm=em.find(AdmisionTipos.class,idtipo);
+//        adm.setId(admision.getId());
+//        adm.setDescripcion(admision.getDescripcion());
+//        adm.setSigla(admision.getSigla());
+//        adm.setMostrar(admision.getMostrar());
+//        em.merge(adm);
+//        em.flush();
+//    }
+//    
+//    @Override
+//    public void eliminaAdmisionTipos(AdmisionTipoTO admision)throws Exception{
+//        Integer idtipo=admision.getId();
+//        em.remove(em.find(AdmisionTipos.class, idtipo));
+//        em.flush();
+//    
+//    }
 
     
     

@@ -35,20 +35,17 @@ public class jfmenuprincipal extends javax.swing.JFrame {
         jMenu2 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         javax.swing.GroupLayout jdpinternalLayout = new javax.swing.GroupLayout(jdpinternal);
         jdpinternal.setLayout(jdpinternalLayout);
         jdpinternalLayout.setHorizontalGroup(
             jdpinternalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 820, Short.MAX_VALUE)
+            .addGap(0, 825, Short.MAX_VALUE)
         );
         jdpinternalLayout.setVerticalGroup(
             jdpinternalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 450, Short.MAX_VALUE)
+            .addGap(0, 454, Short.MAX_VALUE)
         );
-
-        getContentPane().add(jdpinternal, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 820, 450));
 
         jMenu1.setText("Registrar");
         jMenu1.add(jSeparator1);
@@ -67,6 +64,17 @@ public class jfmenuprincipal extends javax.swing.JFrame {
         jMenuBar1.add(jMenu2);
 
         setJMenuBar(jMenuBar1);
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jdpinternal)
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jdpinternal)
+        );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

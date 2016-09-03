@@ -59,6 +59,15 @@ public class GestionAsistenciaDelegate {
     public List<AdmisionTO> getListaAdmision() throws Exception {
         return gestionFacade.getListaAdmision();
     }
+//    public void modificarAdmisionTipo(AdmisionTipoTO admision)throws Exception{
+//         gestionFacade.modificarAdmisionTipo(admision);
+//     }
+//     public void eliminaAdmisionTipos(AdmisionTipoTO admision)throws Exception{
+//         gestionFacade.eliminaAdmisionTipos(admision);
+//     
+//     }
+    
+    
 
    
 }

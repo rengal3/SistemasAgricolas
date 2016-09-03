@@ -4,13 +4,17 @@
  * and open the template in the editor.
  */
 package asistencia.cliente;
-
+import asistencia.delegate.GestionAsistenciaDelegate;
 import com.asistencia.TO.AdmisionTipoTO;
 import com.helper.Utiles_Tabla;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+import javax.swing.table.TableRowSorter;
 import org.jdesktop.beansbinding.AutoBinding;
 import org.jdesktop.beansbinding.BindingGroup;
 import org.jdesktop.beansbinding.ELProperty;
@@ -21,7 +25,7 @@ import org.jdesktop.swingbinding.SwingBindings;
  *
  * @author INFORMATICA
  */
-public class jiTiposAsistencia extends javax.swing.JInternalFrame {
+public final class jiTiposAsistencia extends javax.swing.JInternalFrame {
 
     /**
      * Creates new form jiTiposAsistencia
@@ -32,24 +36,36 @@ public class jiTiposAsistencia extends javax.swing.JInternalFrame {
     
     public jiTiposAsistencia() {
         initComponents();
-        
+       
         MostrarDatos(); 
-       mostrarentext(0);
+//        mostrarentext(0);
       jtabla.requestFocus();
       jtabla.changeSelection(0,0,false, false); 
     }
     public void MostrarDatos(){
-     this.tipos=new ArrayList(1);
+         try {
+            List<AdmisionTipoTO> lista=GestionAsistenciaDelegate.getInstance().getListaAdmisionTipoTO();
+            for(AdmisionTipoTO admision:lista){
+                System.out.println(admision.getId()+"-"+admision.getDescripcion()+"-"+admision.getSigla());
+                this.actualizaTablaTipos(lista);
+            }
+        } catch (Exception ex) {
+            ex.printStackTrace();
+            Logger.getLogger(AsistenciaCliente.class.getName()).log(Level.SEVERE, null, ex);
+        }
+     }   
+        
+//     this.tipos=new ArrayList(1);
+//    
+//       tipos.add(new AdmisionTipoTO(1,"PRESENCIAL NORMAL","PN",1));
+//       tipos.add(new AdmisionTipoTO(2,"DESCANZO MEDICA","DM",1));
+//       tipos.add(new AdmisionTipoTO(3,"DIA NORMAL","DN",0));
+////       tipos.add(new AdmisionTipoTO(1,"12345678","08:00:00"));
+//        this.actualizaTablaTipos(tipos);
     
-       tipos.add(new AdmisionTipoTO(1,"PRESENCIAL NORMAL","PN",1));
-       tipos.add(new AdmisionTipoTO(2,"DESCANZO MEDICA","DM",1));
-       tipos.add(new AdmisionTipoTO(3,"DIA NORMAL","DN",0));
-//       tipos.add(new AdmisionTipoTO(1,"12345678","08:00:00"));
-        this.actualizaTablaTipos(tipos);
     
     
     
-    }
      public void mostrarentext(int row){
         String id = jtabla.getValueAt(row, 0).toString();
         String descripcion = jtabla.getValueAt(row, 1).toString();
@@ -108,7 +124,7 @@ public class jiTiposAsistencia extends javax.swing.JInternalFrame {
       jtfsigla.setText("");
       
       }
-      public void  buttonenabled(boolean ban){
+      public void  Objetosarriba(boolean ban){
 //      jtfcodigo.setEnabled(ban);
         jtfdescripcion.setEnabled(ban);
         jtfsigla.setEnabled(ban);
@@ -116,6 +132,12 @@ public class jiTiposAsistencia extends javax.swing.JInternalFrame {
         jbcancelar.setEnabled(ban);
 //        jbeditar.setEnabled(ban);
 //        jbeditar.setEnabled(ban);
+      }
+      public void  Objetosbajo(boolean ban){
+         jbagregar.setEnabled(ban);
+         jbeditar.setEnabled(ban);
+         jbeliminar.setEnabled(ban);
+         jbcerrar.setEnabled(ban);
       }
 
     /**
@@ -140,6 +162,8 @@ public class jiTiposAsistencia extends javax.swing.JInternalFrame {
         jbaceptar = new javax.swing.JButton();
         jbcancelar = new javax.swing.JButton();
 
+        setIconifiable(true);
+        setTitle("TIPO DE ASISTENCIA");
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jtabla.setModel(new javax.swing.table.DefaultTableModel(
@@ -184,9 +208,19 @@ public class jiTiposAsistencia extends javax.swing.JInternalFrame {
         getContentPane().add(jbeditar, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 120, -1, -1));
 
         jbeliminar.setText("ELIMINAR");
+        jbeliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbeliminarActionPerformed(evt);
+            }
+        });
         getContentPane().add(jbeliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 120, -1, -1));
 
         jbcerrar.setText("CERRAR");
+        jbcerrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbcerrarActionPerformed(evt);
+            }
+        });
         getContentPane().add(jbcerrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 120, -1, -1));
 
         jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -198,14 +232,29 @@ public class jiTiposAsistencia extends javax.swing.JInternalFrame {
 
         jtfdescripcion.setBorder(javax.swing.BorderFactory.createTitledBorder("DESCRIPCION"));
         jtfdescripcion.setEnabled(false);
+        jtfdescripcion.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jtfdescripcionKeyTyped(evt);
+            }
+        });
         jPanel1.add(jtfdescripcion, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 20, 250, -1));
 
         jtfsigla.setBorder(javax.swing.BorderFactory.createTitledBorder("SIGLA"));
         jtfsigla.setEnabled(false);
+        jtfsigla.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jtfsiglaKeyTyped(evt);
+            }
+        });
         jPanel1.add(jtfsigla, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 20, 80, -1));
 
         jbaceptar.setText("ACEPTAR");
         jbaceptar.setEnabled(false);
+        jbaceptar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbaceptarActionPerformed(evt);
+            }
+        });
         jPanel1.add(jbaceptar, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 10, -1, -1));
 
         jbcancelar.setText("CANCELAR");
@@ -218,6 +267,8 @@ public class jiTiposAsistencia extends javax.swing.JInternalFrame {
         jPanel1.add(jbcancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 40, -1, -1));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 750, 80));
+
+        getAccessibleContext().setAccessibleDescription("");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -277,11 +328,11 @@ public class jiTiposAsistencia extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
 //        int mayor=Integer.parseInt(jtabla.getValueAt(0, 0).toString());
 //        System.out.println("inicio "+mayor);
-        buttonenabled(true);
-
-        jbagregar.setEnabled(false);
-        jbeditar.setEnabled(false);
-        jbeliminar.setEnabled(false);
+        Objetosarriba(true);
+        Objetosbajo(false);
+//        jbagregar.setEnabled(false);
+//        jbeditar.setEnabled(false);
+//        jbeliminar.setEnabled(false);
         limpiartxt();
         jtabla.setEnabled(true);
         jtfdescripcion.requestFocus();
@@ -303,11 +354,11 @@ public class jiTiposAsistencia extends javax.swing.JInternalFrame {
 
     private void jbcancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbcancelarActionPerformed
         // TODO add your handling code here:
-        buttonenabled(false);
-
-        jbagregar.setEnabled(true);
-        jbeditar.setEnabled(true);
-        jbeliminar.setEnabled(true);
+        Objetosarriba(false);
+         Objetosbajo(true);
+//        jbagregar.setEnabled(true);
+//        jbeditar.setEnabled(true);
+//        jbeliminar.setEnabled(true);
         limpiartxt();
         int aux = jtabla.getSelectedRow();
         mostrarentext(aux);
@@ -315,10 +366,118 @@ public class jiTiposAsistencia extends javax.swing.JInternalFrame {
 
     private void jbeditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbeditarActionPerformed
         // TODO add your handling code here:
-        buttonenabled(true);
+        Objetosarriba(true);
         jbagregar.setEnabled(false);
         jbeliminar.setEnabled(false);
     }//GEN-LAST:event_jbeditarActionPerformed
+
+    private void jbaceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbaceptarActionPerformed
+        // TODO add your handling code here:
+        boolean sig=true,descrip=true;
+        String msj="",msj1="";
+        String sigla=jtfsigla.getText().trim();
+        String descripcion=jtfdescripcion.getText().trim();
+        
+        if (descripcion.length()==0 ){
+        descrip=false;
+        msj="DESCRIPCION";
+        jtfdescripcion.setText("");
+         jtfdescripcion.requestFocus();
+        } else  if (sigla.length()==0){
+        sig=false;
+        msj1="SIGLA";
+        jtfsigla.setText("");
+        jtfsigla.requestFocus();
+        }
+        
+        if (sig==true && descrip==true){
+        AdmisionTipoTO admision1=new AdmisionTipoTO();
+        admision1.setDescripcion(this.jtfdescripcion.getText().trim());
+        admision1.setSigla(this.jtfsigla.getText().trim());       
+        admision1.setMostrar(1);
+         
+         
+        try{
+          JOptionPane.showMessageDialog(null,"SE GUARDO CORRECTAMENTE");
+            if(GestionAsistenciaDelegate.getInstance().insertaAdmisionTipo(admision1)){
+                
+            }
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+        limpiartxt();
+        Objetosarriba(false);
+        Objetosbajo(true);
+        MostrarDatos();
+        } else {
+        JOptionPane.showMessageDialog(null,"INGRESE: "+msj+" "+msj1);
+        
+        }
+    }//GEN-LAST:event_jbaceptarActionPerformed
+
+    private void jtfdescripcionKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtfdescripcionKeyTyped
+        // TODO add your handling code here:
+            jtfdescripcion.addKeyListener(new KeyAdapter() {
+            @Override
+            public void keyReleased(final KeyEvent e) {
+                String cadena = (jtfdescripcion.getText()).toUpperCase();
+                jtfdescripcion.setText(cadena);
+                repaint();
+              
+            }
+        });
+    }//GEN-LAST:event_jtfdescripcionKeyTyped
+
+    private void jtfsiglaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtfsiglaKeyTyped
+        // TODO add your handling code here:
+         jtfsigla.addKeyListener(new KeyAdapter() {
+            @Override
+            public void keyReleased(final KeyEvent e) {
+                String cadena = (jtfsigla.getText()).toUpperCase();
+                jtfsigla.setText(cadena);
+                repaint();
+              
+            }
+        });
+    }//GEN-LAST:event_jtfsiglaKeyTyped
+
+    private void jbcerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbcerrarActionPerformed
+        // TODO add your handling code here:
+        this.dispose();
+    }//GEN-LAST:event_jbcerrarActionPerformed
+
+    private void jbeliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbeliminarActionPerformed
+        // TODO add your handling code here:
+//         int aux = jtabla.getSelectedRow();
+//        if(aux==-1){
+//          
+//            JOptionPane.showMessageDialog(null, "SELECCIONE UN ITEM EN LA TABLA");
+//        } else {
+//        
+//        
+//       
+//        
+//        AdmisionTipoTO admision=new AdmisionTipoTO();
+//        int idtipos = Integer.parseInt(jtabla.getValueAt(aux, 0).toString());
+//        
+//        admision.setId(idtipos);
+//        
+//        
+//        try{
+//          JOptionPane.showMessageDialog(null,"SE GUARDO CORRECTAMENTE");
+//            GestionAsistenciaDelegate.getInstance().eliminaAdmisionTipos(admision);
+//        }catch(Exception e){
+//            e.printStackTrace();
+//        }
+//        
+//        }
+//        
+//        
+//        
+        
+        
+        
+    }//GEN-LAST:event_jbeliminarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

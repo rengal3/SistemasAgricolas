@@ -5,6 +5,7 @@
  */
 package asistencia.cliente;
 
+import asistencia.delegate.GestionAsistenciaDelegate;
 import com.asistencia.TO.AdmisionTO;
 import com.asistencia.TO.AdmisionTipoTO;
 import com.helper.Utiles_Tabla;
@@ -13,6 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import org.jdesktop.beansbinding.AutoBinding;
 import org.jdesktop.beansbinding.BindingGroup;
 import org.jdesktop.beansbinding.ELProperty;
@@ -28,12 +30,13 @@ public class jfTiposAsistencia extends javax.swing.JFrame {
     /**
      * Creates new form jfTiposAsistencia
      */
-     private JTableBinding jTableBinding;
+    private JTableBinding jTableBinding;
     private List<AdmisionTipoTO> tipos;
     private BindingGroup bindingGroup;
+    
     public jfTiposAsistencia() {
         initComponents();
-       MostrarDatos(); 
+        //MostrarDatos(); 
        mostrarentext(0);
       jtabla.requestFocus();
       jtabla.changeSelection(0,0,false, false); 
@@ -141,8 +144,8 @@ public class jfTiposAsistencia extends javax.swing.JFrame {
         jtfcodigo = new javax.swing.JTextField();
         jtfdescripcion = new javax.swing.JTextField();
         jtfsigla = new javax.swing.JTextField();
-        jbaceptar = new javax.swing.JButton();
         jbcancelar = new javax.swing.JButton();
+        jbaceptar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -204,10 +207,6 @@ public class jfTiposAsistencia extends javax.swing.JFrame {
         jtfsigla.setEnabled(false);
         jPanel1.add(jtfsigla, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 20, 80, -1));
 
-        jbaceptar.setText("ACEPTAR");
-        jbaceptar.setEnabled(false);
-        jPanel1.add(jbaceptar, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 10, -1, -1));
-
         jbcancelar.setText("CANCELAR");
         jbcancelar.setEnabled(false);
         jbcancelar.addActionListener(new java.awt.event.ActionListener() {
@@ -216,6 +215,14 @@ public class jfTiposAsistencia extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jbcancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 40, -1, -1));
+
+        jbaceptar.setText("jButton1");
+        jbaceptar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbaceptarActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jbaceptar, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 10, -1, -1));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 750, 80));
 
@@ -300,6 +307,24 @@ public class jfTiposAsistencia extends javax.swing.JFrame {
          int aux = jtabla.getSelectedRow();
          mostrarentext(aux);
     }//GEN-LAST:event_jbcancelarActionPerformed
+
+    private void jbaceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbaceptarActionPerformed
+        // TODO add your handling code here:
+        //         AdmisionTipoTO admision1=new AdmisionTipoTO();
+//        admision1.setDescripcion(this.jtfdescripcion.getText());
+//        admision1.setSigla(this.jtfsigla.getText());       
+//        admision1.setMostrar(1);
+         JOptionPane.showMessageDialog(null,"Se guardo correctamente");
+         System.out.println("IMPRIMIR");
+//        try{
+//          
+//            if(GestionAsistenciaDelegate.getInstance().insertaAdmisionTipo(admision1)){
+//                
+//            }
+//        }catch(Exception e){
+//            e.printStackTrace();
+//        }
+    }//GEN-LAST:event_jbaceptarActionPerformed
 
     /**
      * @param args the command line arguments

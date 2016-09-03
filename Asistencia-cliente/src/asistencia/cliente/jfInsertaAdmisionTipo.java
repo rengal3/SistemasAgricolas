@@ -7,6 +7,7 @@ package asistencia.cliente;
 
 import asistencia.delegate.GestionAsistenciaDelegate;
 import com.asistencia.TO.AdmisionTipoTO;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -126,9 +127,9 @@ public class jfInsertaAdmisionTipo extends javax.swing.JFrame {
         admision.setMostrar(Integer.valueOf(this.jtfMostrar.getText()).intValue());
         
         try{
-            
+           JOptionPane.showMessageDialog(null,"Se guardo correctamente");
             if(GestionAsistenciaDelegate.getInstance().insertaAdmisionTipo(admision)){
-                System.out.println("Se guardo correctamente");
+                
             }
         }catch(Exception e){
             e.printStackTrace();

@@ -33,19 +33,19 @@ public class jfAdministraAsistencia extends javax.swing.JFrame {
      */
     public jfAdministraAsistencia() {
         initComponents();
-        MostrarDatos();
+       // MostrarDatos();
     }
-    public void MostrarDatos(){
-     this.asistencias=new ArrayList(1);
-        asistencias.add(new AdmisionTO(1,"12345678","08:00:00","13:00:00",BigDecimal.TEN,"ALMACENERO","NN","NN"));
-       asistencias.add(new AdmisionTO(1,"12345678","08:00:00","13:00:00",BigDecimal.TEN,"ALMACENERO","NN","NN"));
-       asistencias.add(new AdmisionTO(1,"12345678","08:00:00","13:00:00",BigDecimal.TEN,"ALMACENERO","NN","NN"));
-       asistencias.add(new AdmisionTO(1,"12345678","08:00:00","13:00:00",BigDecimal.TEN,"ALMACENERO","NN","NN"));
-        this.actualizaTablaAsistencias(asistencias);
-    
-    
-    
-    }
+//    public void MostrarDatos(){
+//     this.asistencias=new ArrayList(1);
+//        asistencias.add(new AdmisionTO(1,"12345678","08:00:00","13:00:00",BigDecimal.TEN,"ALMACENERO","NN","NN"));
+//       asistencias.add(new AdmisionTO(1,"12345678","08:00:00","13:00:00",BigDecimal.TEN,"ALMACENERO","NN","NN"));
+//       asistencias.add(new AdmisionTO(1,"12345678","08:00:00","13:00:00",BigDecimal.TEN,"ALMACENERO","NN","NN"));
+//       asistencias.add(new AdmisionTO(1,"12345678","08:00:00","13:00:00",BigDecimal.TEN,"ALMACENERO","NN","NN"));
+//        this.actualizaTablaAsistencias(asistencias);
+//    
+//    
+//    
+//    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -182,10 +182,10 @@ public class jfAdministraAsistencia extends javax.swing.JFrame {
         } catch (Exception ex) {
             Logger.getLogger(jfAdministraAsistencia.class.getName()).log(Level.SEVERE, null, ex);
             ex.printStackTrace();
-           // this.asistencias=new ArrayList(1);
+            this.asistencias=new ArrayList(1);
         }
 //       AdmisionTO ad =new AdmisionTO(1,"12345678","","",BigDecimal.TEN,"","","");
-      
+      actualizaTablaAsistencias(asistencias);
     }//GEN-LAST:event_jButton1ActionPerformed
 
      private void actualizaTablaAsistencias(List<AdmisionTO> aasistencias_tmp){

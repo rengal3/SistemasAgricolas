@@ -69,13 +69,10 @@ public class AsistenciaDAO implements AsistenciaDAOLocal {
     @Override
     public void eliminaAdmisionTipos(AdmisionTipoTO admision)throws Exception{
         Integer idtipo=admision.getId();
-        System.out.println("id tipo"+idtipo);
+        System.out.println("id tipo asistencia dao"+idtipo);
         em.remove(em.find(AdmisionTipos.class, idtipo));
         em.flush();
     
     }
-
-    
-    
-    
+  
 }

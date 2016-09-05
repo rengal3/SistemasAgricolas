@@ -43,6 +43,7 @@ public class AsistenciaBusiness implements AsistenciaBusinessLocal {
      }
     @Override
      public void eliminaAdmisionTipos(AdmisionTipoTO admision)throws Exception{
+         
          asistenciaDao.eliminaAdmisionTipos(admision);
      
      }

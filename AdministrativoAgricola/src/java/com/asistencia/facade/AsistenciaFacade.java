@@ -43,6 +43,7 @@ public class AsistenciaFacade implements AsistenciaFacadeRemote {
      }
     @Override
      public void eliminaAdmisionTipos(AdmisionTipoTO admision)throws Exception{
+          System.out.println("id asistencia facade"+admision);
          asistenciaBusiness.eliminaAdmisionTipos(admision);
      
      }

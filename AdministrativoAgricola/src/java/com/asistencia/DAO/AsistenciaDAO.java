@@ -56,8 +56,8 @@ public class AsistenciaDAO implements AsistenciaDAOLocal {
     
     @Override
     public void modificarAdmisionTipo(AdmisionTipoTO admision)throws Exception{
-        Integer idtipo=admision.getId();
-        AdmisionTipos adm=em.find(AdmisionTipos.class,idtipo);
+        //Integer idtipo=admision.getId();
+        AdmisionTipos adm=em.find(AdmisionTipos.class,(int)admision.getId());
         adm.setId(admision.getId());
         adm.setDescripcion(admision.getDescripcion());
         adm.setSigla(admision.getSigla());

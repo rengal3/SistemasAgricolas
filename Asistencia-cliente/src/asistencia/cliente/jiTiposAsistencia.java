@@ -473,6 +473,7 @@ public final class jiTiposAsistencia extends javax.swing.JInternalFrame {
          
             GestionAsistenciaDelegate.getInstance().eliminaAdmisionTipos(admision1);
              JOptionPane.showMessageDialog(null,"SE ELIMINO CORRECTAMENTE");
+              MostrarDatos(); 
         }catch(Exception e){
             e.printStackTrace();
         }

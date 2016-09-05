@@ -22,6 +22,7 @@ public interface AsistenciaFacadeRemote {
     List<AdmisionTipoTO> getListaAdmisionTipoTO() throws Exception;
     
     List<AdmisionTO> getListaAdmision() throws Exception;
+
+}
 //    void modificarAdmisionTipo(AdmisionTipoTO admision)throws Exception;
 //    void eliminaAdmisionTipos(AdmisionTipoTO admision)throws Exception;
-}

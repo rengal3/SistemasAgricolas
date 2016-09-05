@@ -63,6 +63,7 @@ public class GestionAsistenciaDelegate {
          gestionFacade.modificarAdmisionTipo(admision);
      }
      public void eliminaAdmisionTipos(AdmisionTipoTO admision)throws Exception{
+         System.out.println("id gestionasistencia delegate"+admision);
          gestionFacade.eliminaAdmisionTipos(admision);
      
      }

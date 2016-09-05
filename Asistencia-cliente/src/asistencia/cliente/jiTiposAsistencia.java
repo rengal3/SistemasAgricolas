@@ -461,26 +461,21 @@ public final class jiTiposAsistencia extends javax.swing.JInternalFrame {
         
        
         
-        AdmisionTipoTO admision=new AdmisionTipoTO();
+        AdmisionTipoTO admision1=new AdmisionTipoTO();
         int idtipos = Integer.parseInt(jtabla.getValueAt(aux, 0).toString());
-        
-        admision.setId(idtipos);
+        System.out.println("id tipos"+idtipos);
+        admision1.setId(idtipos);
         
         
         try{
-          JOptionPane.showMessageDialog(null,"SE ELIMINO CORRECTAMENTE");
-            GestionAsistenciaDelegate.getInstance().eliminaAdmisionTipos(admision);
+         
+            GestionAsistenciaDelegate.getInstance().eliminaAdmisionTipos(admision1);
+             JOptionPane.showMessageDialog(null,"SE ELIMINO CORRECTAMENTE");
         }catch(Exception e){
             e.printStackTrace();
         }
         
         }
-        
-        
-        
-        
-        
-        
     }//GEN-LAST:event_jbeliminarActionPerformed
 
 

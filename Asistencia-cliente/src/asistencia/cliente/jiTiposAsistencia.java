@@ -161,7 +161,6 @@ public final class jiTiposAsistencia extends javax.swing.JInternalFrame {
         jtfsigla = new javax.swing.JTextField();
         jbaceptar = new javax.swing.JButton();
         jbcancelar = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
 
         setIconifiable(true);
         setTitle("TIPO DE ASISTENCIA");
@@ -269,14 +268,6 @@ public final class jiTiposAsistencia extends javax.swing.JInternalFrame {
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 750, 80));
 
-        jButton1.setText("jButton1");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 120, -1, -1));
-
         getAccessibleContext().setAccessibleDescription("");
 
         pack();
@@ -381,7 +372,40 @@ public final class jiTiposAsistencia extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
         Objetosarriba(true);
         jbagregar.setEnabled(false);
-        jbeliminar.setEnabled(false);
+        jbeliminar.setEnabled(false);       
+        int mostrar,id;
+        String descrip,sigla;
+        int aux = jtabla.getSelectedRow();
+        descrip=jtfdescripcion.getText();
+        sigla=jtfsigla.getText();
+        id=Integer.parseInt((String)jtabla.getValueAt(aux, 0));
+        mostrar=Integer.parseInt((String)jtabla.getValueAt(aux,3));
+        
+         if(aux==-1){
+          
+            JOptionPane.showMessageDialog(null, "SELECCIONE UN ITEM EN LA TABLA");
+        } else {
+             AdmisionTipoTO admision=new AdmisionTipoTO();
+             admision.setId((int)id);
+             admision.setDescripcion(descrip);
+             admision.setSigla(sigla);
+             admision.setMostrar(mostrar);
+             try{
+             
+              GestionAsistenciaDelegate.getInstance().modificarAdmisionTipo(admision);
+             JOptionPane.showMessageDialog(null, "SE EDITO CORRECTAMENTE LA ASISTENCIA");
+             
+             }catch(Exception e){
+              e.printStackTrace();
+             
+             }
+             
+            MostrarDatos();
+             
+            
+             
+        
+         }
     }//GEN-LAST:event_jbeditarActionPerformed
 
     private void jbaceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbaceptarActionPerformed
@@ -484,14 +508,8 @@ public final class jiTiposAsistencia extends javax.swing.JInternalFrame {
         }
     }//GEN-LAST:event_jbeliminarActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-         MostrarDatos();
-    }//GEN-LAST:event_jButton1ActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JButton jbaceptar;

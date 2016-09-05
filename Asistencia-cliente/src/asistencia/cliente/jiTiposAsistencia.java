@@ -161,6 +161,7 @@ public final class jiTiposAsistencia extends javax.swing.JInternalFrame {
         jtfsigla = new javax.swing.JTextField();
         jbaceptar = new javax.swing.JButton();
         jbcancelar = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
 
         setIconifiable(true);
         setTitle("TIPO DE ASISTENCIA");
@@ -267,6 +268,14 @@ public final class jiTiposAsistencia extends javax.swing.JInternalFrame {
         jPanel1.add(jbcancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 40, -1, -1));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 750, 80));
+
+        jButton1.setText("jButton1");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 120, -1, -1));
 
         getAccessibleContext().setAccessibleDescription("");
 
@@ -457,19 +466,13 @@ public final class jiTiposAsistencia extends javax.swing.JInternalFrame {
           
             JOptionPane.showMessageDialog(null, "SELECCIONE UN ITEM EN LA TABLA");
         } else {
-        
-        
-       
-        
         AdmisionTipoTO admision1=new AdmisionTipoTO();
         int idtipos = Integer.parseInt(jtabla.getValueAt(aux, 0).toString());
         System.out.println("id tipos"+idtipos);
         admision1.setId((int)idtipos);
         
         //admision1.toString();
-        
-        
-        try{
+           try{
          
             GestionAsistenciaDelegate.getInstance().eliminaAdmisionTipos(admision1);
              JOptionPane.showMessageDialog(null,"SE ELIMINO CORRECTAMENTE");
@@ -481,8 +484,14 @@ public final class jiTiposAsistencia extends javax.swing.JInternalFrame {
         }
     }//GEN-LAST:event_jbeliminarActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+         MostrarDatos();
+    }//GEN-LAST:event_jButton1ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JButton jbaceptar;

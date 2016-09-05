@@ -464,7 +464,7 @@ public final class jiTiposAsistencia extends javax.swing.JInternalFrame {
         AdmisionTipoTO admision1=new AdmisionTipoTO();
         int idtipos = Integer.parseInt(jtabla.getValueAt(aux, 0).toString());
         System.out.println("id tipos"+idtipos);
-        admision1.setId(idtipos);
+        admision1.setId((int)idtipos);
         
         admision1.toString();
         

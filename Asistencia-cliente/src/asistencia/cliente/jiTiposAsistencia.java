@@ -466,7 +466,7 @@ public final class jiTiposAsistencia extends javax.swing.JInternalFrame {
         System.out.println("id tipos"+idtipos);
         admision1.setId((int)idtipos);
         
-        admision1.toString();
+        //admision1.toString();
         
         
         try{

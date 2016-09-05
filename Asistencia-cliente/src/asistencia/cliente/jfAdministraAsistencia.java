@@ -186,7 +186,7 @@ public class jfAdministraAsistencia extends javax.swing.JFrame {
             this.jtfTipoAdmision.setText(
                     this.tipoAdmisionBuscada.getSigla()+" - "+this.tipoAdmisionBuscada.getDescripcion());
             System.out.println(this.tipoAdmisionBuscada.getSigla()+" - "+this.tipoAdmisionBuscada.getDescripcion());
-           //aplicar busqueda
+           //aplicar operaciones de aplicar filtros en la tabla
         }
 
     }

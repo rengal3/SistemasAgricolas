@@ -402,9 +402,9 @@ public final class jiTiposAsistencia extends javax.swing.JInternalFrame {
          
          
         try{
-          JOptionPane.showMessageDialog(null,"SE GUARDO CORRECTAMENTE");
+          
             if(GestionAsistenciaDelegate.getInstance().insertaAdmisionTipo(admision1)){
-                
+                JOptionPane.showMessageDialog(null,"SE GUARDO CORRECTAMENTE");
             }
         }catch(Exception e){
             e.printStackTrace();
@@ -473,11 +473,11 @@ public final class jiTiposAsistencia extends javax.swing.JInternalFrame {
          
             GestionAsistenciaDelegate.getInstance().eliminaAdmisionTipos(admision1);
              JOptionPane.showMessageDialog(null,"SE ELIMINO CORRECTAMENTE");
-              MostrarDatos(); 
+              
         }catch(Exception e){
             e.printStackTrace();
         }
-        
+        MostrarDatos(); 
         }
     }//GEN-LAST:event_jbeliminarActionPerformed
 

@@ -7,7 +7,10 @@ package asistencia.cliente;
 
 import asistencia.delegate.GestionAsistenciaDelegate;
 import com.asistencia.TO.AdmisionTO;
+import com.asistencia.TO.AdmisionTipoTO;
+import com.helper.Utiles_MensajesDialogo;
 import com.helper.Utiles_Tabla;
+import com.jidesoft.hints.ListDataIntelliHints;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
@@ -28,13 +31,26 @@ public class jfAdministraAsistencia extends javax.swing.JFrame {
     private JTableBinding jTableBinding;
     private List<AdmisionTO> asistencias;
     private BindingGroup bindingGroup;
+    private ListDataIntelliHints intelliHintsTipoAdmision;
+    private AdmisionTipoTO tipoAdmisionBuscada;
     /**
      * Creates new form jfAdministraAsistencia
      */
     public jfAdministraAsistencia() {
         initComponents();
+        
+        try {
+            cargaHintsIndependientes();
+        } catch (Exception ex) {            
+            ex.printStackTrace();
+        }
     }
 
+     private void cargaHintsIndependientes() throws Exception {
+        this.intelliHintsTipoAdmision = new ListDataIntelliHints(
+                this.jtfTipoAdmision, GestionAsistenciaDelegate.getInstance().getListaAdmisionTipoTO());
+                //((JList) this.intelliHintsTipoAdmision.getDelegateComponent()).setFixedCellWidth(306);
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -48,6 +64,8 @@ public class jfAdministraAsistencia extends javax.swing.JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         jtAsistencias = new javax.swing.JTable();
         jButton1 = new javax.swing.JButton();
+        jtfTipoAdmision = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -93,6 +111,14 @@ public class jfAdministraAsistencia extends javax.swing.JFrame {
             }
         });
 
+        jtfTipoAdmision.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jtfTipoAdmisionActionPerformed(evt);
+            }
+        });
+
+        jLabel1.setText("Tipo Admision");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -102,11 +128,21 @@ public class jfAdministraAsistencia extends javax.swing.JFrame {
                 .addContainerGap(486, Short.MAX_VALUE)
                 .addComponent(jButton1)
                 .addGap(33, 33, 33))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jtfTipoAdmision, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(149, Short.MAX_VALUE)
+                .addContainerGap(100, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jtfTipoAdmision, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1))
+                .addGap(29, 29, 29)
                 .addComponent(jButton1)
                 .addGap(18, 18, 18)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -129,6 +165,31 @@ public class jfAdministraAsistencia extends javax.swing.JFrame {
         this.actualizaTablaAsistencias(asistencias);
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void jtfTipoAdmisionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtfTipoAdmisionActionPerformed
+        // TODO add your handling code here:
+        buscarAdmisionTipo();
+    }//GEN-LAST:event_jtfTipoAdmisionActionPerformed
+
+    private void buscarAdmisionTipo() {        
+        
+            try {
+                this.tipoAdmisionBuscada = (AdmisionTipoTO) this.intelliHintsTipoAdmision.getSelectedHint();
+            } catch (NullPointerException ex) {
+                this.tipoAdmisionBuscada = null;
+            }
+        if (this.tipoAdmisionBuscada == null) {
+            Utiles_MensajesDialogo.mensajeError("Elija un Tipo de Admision de la Lista Desplegable");
+            this.jtfTipoAdmision.setText("");
+            this.tipoAdmisionBuscada = null;
+        } else {
+
+            this.jtfTipoAdmision.setText(
+                    this.tipoAdmisionBuscada.getSigla()+" - "+this.tipoAdmisionBuscada.getDescripcion());
+            System.out.println(this.tipoAdmisionBuscada.getSigla()+" - "+this.tipoAdmisionBuscada.getDescripcion());
+           //aplicar busqueda
+        }
+
+    }
      private void actualizaTablaAsistencias(List<AdmisionTO> aasistencias_tmp){
         this.bindingGroup = new BindingGroup();
         this.jTableBinding = SwingBindings.createJTableBinding(AutoBinding.UpdateStrategy.READ, aasistencias_tmp, this.jtAsistencias);
@@ -231,8 +292,10 @@ public class jfAdministraAsistencia extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jtAsistencias;
+    private javax.swing.JTextField jtfTipoAdmision;
     // End of variables declaration//GEN-END:variables
 }

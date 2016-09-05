@@ -38,7 +38,7 @@ public final class jiTiposAsistencia extends javax.swing.JInternalFrame {
         initComponents();
        
         MostrarDatos(); 
-//        mostrarentext(0);
+        mostrarentext(0);
       jtabla.requestFocus();
       jtabla.changeSelection(0,0,false, false); 
     }
@@ -66,16 +66,16 @@ public final class jiTiposAsistencia extends javax.swing.JInternalFrame {
     
     
     
-//     public void mostrarentext(int row){
-//        String id = jtabla.getValueAt(row, 0).toString();
-//        String descripcion = jtabla.getValueAt(row, 1).toString();
-//        String sigla=jtabla.getValueAt(row,2).toString();
-//        jtfcodigo.setText(id);
-//        jtfdescripcion.setText(descripcion);
-//        jtfsigla.setText(sigla);
-//
-//
-//}
+     public void mostrarentext(int row){
+        String id = jtabla.getValueAt(row, 0).toString();
+        String descripcion = jtabla.getValueAt(row, 1).toString();
+        String sigla=jtabla.getValueAt(row,2).toString();
+        jtfcodigo.setText(id);
+        jtfdescripcion.setText(descripcion);
+        jtfsigla.setText(sigla);
+
+
+}
       private void actualizaTablaTipos(List<AdmisionTipoTO> aasistencias_tmp){
         this.bindingGroup = new BindingGroup();
         this.jTableBinding = SwingBindings.createJTableBinding(AutoBinding.UpdateStrategy.READ, aasistencias_tmp, this.jtabla);
@@ -275,10 +275,10 @@ public final class jiTiposAsistencia extends javax.swing.JInternalFrame {
 
     private void jtablaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtablaMouseClicked
         // TODO add your handling code here:
-//        int aux = jtabla.getSelectedRow();
-//
-//        mostrarentext(aux);
-//        
+        int aux = jtabla.getSelectedRow();
+
+        mostrarentext(aux);
+        
         
         
         
@@ -293,38 +293,38 @@ public final class jiTiposAsistencia extends javax.swing.JInternalFrame {
     private void jtablaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtablaKeyPressed
         // TODO add your handling code here:
 
-//        int evento=evt.getKeyCode();
-//        int cont=jtabla.getRowCount();
-//        int  aux2=jtabla.getSelectedRow();
-//        int  aux3=jtabla.getSelectedRow();
-//        if(evento==10){ //  40 | (Tecla enter) |
-//            aux3++;
-//            if (cont == aux3){
-//                aux3 = 0;
-//                mostrarentext(aux3);
-//
-//            } else {
-//                mostrarentext(aux3);
-//            }
-//        }
-//        if (evento==40 ){ //  40 | (Tecla Abajo) |
-//
-//            int aux = jtabla.getSelectedRow()+1;
-//            if (aux < cont){
-//                mostrarentext(aux);
-//            }
-//        }
-//
-//        if ( evento==38){ //| 38 | (Tecla Arriba)
-//            if (aux2>0){
-//                aux2 = aux2-1;
-//            }
-//
-//            if (aux2 <= cont){
-//                mostrarentext(aux2);
-//
-//            }
-//        }
+        int evento=evt.getKeyCode();
+        int cont=jtabla.getRowCount();
+        int  aux2=jtabla.getSelectedRow();
+        int  aux3=jtabla.getSelectedRow();
+        if(evento==10){ //  40 | (Tecla enter) |
+            aux3++;
+            if (cont == aux3){
+                aux3 = 0;
+                mostrarentext(aux3);
+
+            } else {
+                mostrarentext(aux3);
+            }
+        }
+        if (evento==40 ){ //  40 | (Tecla Abajo) |
+
+            int aux = jtabla.getSelectedRow()+1;
+            if (aux < cont){
+                mostrarentext(aux);
+            }
+        }
+
+        if ( evento==38){ //| 38 | (Tecla Arriba)
+            if (aux2>0){
+                aux2 = aux2-1;
+            }
+
+            if (aux2 <= cont){
+                mostrarentext(aux2);
+
+            }
+        }
 
     }//GEN-LAST:event_jtablaKeyPressed
 
@@ -365,7 +365,7 @@ public final class jiTiposAsistencia extends javax.swing.JInternalFrame {
 //        jbeliminar.setEnabled(true);
         limpiartxt();
         int aux = jtabla.getSelectedRow();
-//        mostrarentext(aux);
+        mostrarentext(aux);
     }//GEN-LAST:event_jbcancelarActionPerformed
 
     private void jbeditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbeditarActionPerformed
@@ -452,32 +452,32 @@ public final class jiTiposAsistencia extends javax.swing.JInternalFrame {
 
     private void jbeliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbeliminarActionPerformed
         // TODO add your handling code here:
-//         int aux = jtabla.getSelectedRow();
-//        if(aux==-1){
-//          
-//            JOptionPane.showMessageDialog(null, "SELECCIONE UN ITEM EN LA TABLA");
-//        } else {
-//        
-//        
-//       
-//        
-//        AdmisionTipoTO admision=new AdmisionTipoTO();
-//        int idtipos = Integer.parseInt(jtabla.getValueAt(aux, 0).toString());
-//        
-//        admision.setId(idtipos);
-//        
-//        
-//        try{
-//          JOptionPane.showMessageDialog(null,"SE GUARDO CORRECTAMENTE");
-//            GestionAsistenciaDelegate.getInstance().eliminaAdmisionTipos(admision);
-//        }catch(Exception e){
-//            e.printStackTrace();
-//        }
-//        
-//        }
-//        
-//        
-//        
+         int aux = jtabla.getSelectedRow();
+        if(aux==-1){
+          
+            JOptionPane.showMessageDialog(null, "SELECCIONE UN ITEM EN LA TABLA");
+        } else {
+        
+        
+       
+        
+        AdmisionTipoTO admision=new AdmisionTipoTO();
+        int idtipos = Integer.parseInt(jtabla.getValueAt(aux, 0).toString());
+        
+        admision.setId(idtipos);
+        
+        
+        try{
+          JOptionPane.showMessageDialog(null,"SE ELIMINO CORRECTAMENTE");
+            GestionAsistenciaDelegate.getInstance().eliminaAdmisionTipos(admision);
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+        
+        }
+        
+        
+        
         
         
         

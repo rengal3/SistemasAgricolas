@@ -54,25 +54,26 @@ public class AsistenciaDAO implements AsistenciaDAOLocal {
         return Conversiones.convertirTOAdmision(consulta.getResultList());
     }
     
-//    @Override
-//    public void modificarAdmisionTipo(AdmisionTipoTO admision)throws Exception{
-//        Integer idtipo=admision.getId();
-//        AdmisionTipos adm=em.find(AdmisionTipos.class,idtipo);
-//        adm.setId(admision.getId());
-//        adm.setDescripcion(admision.getDescripcion());
-//        adm.setSigla(admision.getSigla());
-//        adm.setMostrar(admision.getMostrar());
-//        em.merge(adm);
-//        em.flush();
-//    }
-//    
-//    @Override
-//    public void eliminaAdmisionTipos(AdmisionTipoTO admision)throws Exception{
-//        Integer idtipo=admision.getId();
-//        em.remove(em.find(AdmisionTipos.class, idtipo));
-//        em.flush();
-//    
-//    }
+    @Override
+    public void modificarAdmisionTipo(AdmisionTipoTO admision)throws Exception{
+        Integer idtipo=admision.getId();
+        AdmisionTipos adm=em.find(AdmisionTipos.class,idtipo);
+        adm.setId(admision.getId());
+        adm.setDescripcion(admision.getDescripcion());
+        adm.setSigla(admision.getSigla());
+        adm.setMostrar(admision.getMostrar());
+        em.merge(adm);
+        em.flush();
+    }
+    
+    @Override
+    public void eliminaAdmisionTipos(AdmisionTipoTO admision)throws Exception{
+        Integer idtipo=admision.getId();
+        System.out.println("id tipo"+idtipo);
+        em.remove(em.find(AdmisionTipos.class, idtipo));
+        em.flush();
+    
+    }
 
     
     

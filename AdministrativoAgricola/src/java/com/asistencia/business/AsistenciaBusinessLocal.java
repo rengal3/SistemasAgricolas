@@ -20,6 +20,6 @@ public interface AsistenciaBusinessLocal {
     boolean insertarAdmisionTipo(AdmisionTipoTO admision) throws Exception;
     List<AdmisionTipoTO> getAdmisionTipoTO() throws Exception;
     List<AdmisionTO> getListaAdmision() throws Exception ;
-//    void modificarAdmisionTipo(AdmisionTipoTO admision)throws Exception;
-//    void eliminaAdmisionTipos(AdmisionTipoTO admision)throws Exception;
+    void modificarAdmisionTipo(AdmisionTipoTO admision)throws Exception;
+    void eliminaAdmisionTipos(AdmisionTipoTO admision)throws Exception;
 }

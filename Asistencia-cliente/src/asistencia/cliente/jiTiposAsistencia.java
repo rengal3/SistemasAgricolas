@@ -33,7 +33,8 @@ public final class jiTiposAsistencia extends javax.swing.JInternalFrame {
     private JTableBinding jTableBinding;
     private List<AdmisionTipoTO> tipos;
     private BindingGroup bindingGroup;
-    
+    boolean editar=false;
+    boolean agregar=false;
     public jiTiposAsistencia() {
         initComponents();
        
@@ -340,6 +341,7 @@ public final class jiTiposAsistencia extends javax.swing.JInternalFrame {
         limpiartxt();
         jtabla.setEnabled(true);
         jtfdescripcion.requestFocus();
+        agregar=true;
 //        
 //        for (int i=0;i<jtabla.getColumnCount()-1;i++){
 //            System.out.println("index"+i);
@@ -372,23 +374,40 @@ public final class jiTiposAsistencia extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
         Objetosarriba(true);
         jbagregar.setEnabled(false);
-        jbeliminar.setEnabled(false);       
+        jbeliminar.setEnabled(false);
+        
+        editar=true;
+        
+        
+        
+        
+    }//GEN-LAST:event_jbeditarActionPerformed
+
+    private void jbaceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbaceptarActionPerformed
+        // TODO add your handling code here:
+       
+        
+        if(editar==true){
         int mostrar,id;
-        String descrip,sigla;
+        String descripedit,siglaedit;
         int aux = jtabla.getSelectedRow();
-        descrip=jtfdescripcion.getText();
-        sigla=jtfsigla.getText();
-        id=Integer.parseInt((String)jtabla.getValueAt(aux, 0));
-        mostrar=Integer.parseInt((String)jtabla.getValueAt(aux,3));
+       
         
          if(aux==-1){
           
             JOptionPane.showMessageDialog(null, "SELECCIONE UN ITEM EN LA TABLA");
         } else {
+                descripedit=jtfdescripcion.getText();
+                siglaedit=jtfsigla.getText();
+                id=Integer.parseInt((String)jtabla.getValueAt(aux, 0));
+                System.out.println("id "+id);
+                mostrar=Integer.parseInt((String)jtabla.getValueAt(aux,3));
+                System.out.println("mostrar "+mostrar);
+             
              AdmisionTipoTO admision=new AdmisionTipoTO();
              admision.setId((int)id);
-             admision.setDescripcion(descrip);
-             admision.setSigla(sigla);
+             admision.setDescripcion(descripedit);
+             admision.setSigla(siglaedit);
              admision.setMostrar(mostrar);
              try{
              
@@ -402,54 +421,66 @@ public final class jiTiposAsistencia extends javax.swing.JInternalFrame {
              
             MostrarDatos();
              
-            
-             
-        
+            editar=false;    
          }
-    }//GEN-LAST:event_jbeditarActionPerformed
-
-    private void jbaceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbaceptarActionPerformed
-        // TODO add your handling code here:
-        boolean sig=true,descrip=true;
-        String msj="",msj1="";
-        String sigla=jtfsigla.getText().trim();
-        String descripcion=jtfdescripcion.getText().trim();
-        
-        if (descripcion.length()==0 ){
-        descrip=false;
-        msj="DESCRIPCION";
-        jtfdescripcion.setText("");
-         jtfdescripcion.requestFocus();
-        } else  if (sigla.length()==0){
-        sig=false;
-        msj1="SIGLA";
-        jtfsigla.setText("");
-        jtfsigla.requestFocus();
         }
         
-        if (sig==true && descrip==true){
-        AdmisionTipoTO admision1=new AdmisionTipoTO();
-        admision1.setDescripcion(this.jtfdescripcion.getText().trim());
-        admision1.setSigla(this.jtfsigla.getText().trim());       
-        admision1.setMostrar(1);
-         
-         
-        try{
+        
+        
+        
+        
+        if(agregar==true){
+            boolean sig=true,descrip=true;
+            String msj="",msj1="";
+            String sigla=jtfsigla.getText().trim();
+            String descripcion=jtfdescripcion.getText().trim();   
+            
+            
+            if (descripcion.length()==0 ){
+                descrip=false;
+                msj="DESCRIPCION";
+                jtfdescripcion.setText("");
+                jtfdescripcion.requestFocus();
+            } else  if (sigla.length()==0){
+                        sig=false;
+                        msj1="SIGLA";
+                        jtfsigla.setText("");
+                        jtfsigla.requestFocus();
+                    }
+        
+            if (sig==true && descrip==true){
+                AdmisionTipoTO admision1=new AdmisionTipoTO();
+                admision1.setDescripcion(this.jtfdescripcion.getText().trim());
+                admision1.setSigla(this.jtfsigla.getText().trim());       
+                admision1.setMostrar(1);        
+                try{
           
-            if(GestionAsistenciaDelegate.getInstance().insertaAdmisionTipo(admision1)){
-                JOptionPane.showMessageDialog(null,"SE GUARDO CORRECTAMENTE");
-            }
-        }catch(Exception e){
-            e.printStackTrace();
-        }
-        limpiartxt();
-        Objetosarriba(false);
-        Objetosbajo(true);
-        MostrarDatos();
-        } else {
-        JOptionPane.showMessageDialog(null,"INGRESE: "+msj+" "+msj1);
+                    if(GestionAsistenciaDelegate.getInstance().insertaAdmisionTipo(admision1)){
+                    JOptionPane.showMessageDialog(null,"SE GUARDO CORRECTAMENTE");
+                }
+                }catch(Exception e){
+                    e.printStackTrace();
+                }
+                limpiartxt();
+                Objetosarriba(false);
+                Objetosbajo(true);
+                MostrarDatos();
+            } else {
+                JOptionPane.showMessageDialog(null,"INGRESE: "+msj+" "+msj1);
+        
+            }   
+            
+            agregar=false;
+            
+        
+        
         
         }
+        
+        
+        
+        
+        
     }//GEN-LAST:event_jbaceptarActionPerformed
 
     private void jtfdescripcionKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtfdescripcionKeyTyped

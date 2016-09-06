@@ -26,5 +26,6 @@ public interface AsistenciaDAOLocal {
     void modificaAdmision(AdmisionTO admision) throws Exception;
 
     void eliminaAdmision(AdmisionTO admision) throws Exception;
-    
+    void modificarAdmisionTipo(AdmisionTipoTO admision)throws Exception;
+    void eliminaAdmisionTipos(AdmisionTipoTO admision)throws Exception;
 }

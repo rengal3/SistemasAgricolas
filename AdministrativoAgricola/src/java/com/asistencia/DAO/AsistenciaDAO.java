@@ -58,19 +58,19 @@ public class AsistenciaDAO implements AsistenciaDAOLocal {
         return NativeQueryResultsMapper.map(consulta.getResultList(), AdmisionTO.class);
     }
 
-    @Override
-    public void modificaAdmision(AdmisionTO admision) throws Exception {
-        Integer idAdmision=admision.getIdAdmision();  
-        Admision adm=em.find(Admision.class, idAdmision);
-        adm.setIdPersonal(new Personal(admision.getIdPersona()));
-        adm.setHoras(admision.getHoras());
-        adm.setHIngreso(admision.gethIngreso());
-        adm.setHSalida(admision.gethSalida());
-        adm.setModifico(admision.getModifico());
-        
-        em.merge(adm);
-        em.flush();
-    }
+//    @Override
+//    public void modificaAdmision(AdmisionTO admision) throws Exception {
+//        Integer idAdmision=admision.getIdAdmision();  
+//        Admision adm=em.find(Admision.class, idAdmision);
+//        adm.setIdPersonal(new Personal(admision.getIdPersona()));
+//        adm.setHoras(admision.getHoras());
+//        adm.setHIngreso(admision.gethIngreso());
+//        adm.setHSalida(admision.gethSalida());
+//        adm.setModifico(admision.getModifico());
+//        
+//        em.merge(adm);
+//        em.flush();
+//    }
 
     @Override
     public void eliminaAdmision(AdmisionTO admision) throws Exception {
@@ -93,12 +93,12 @@ public class AsistenciaDAO implements AsistenciaDAOLocal {
         em.flush();
     }
 
-    @Override
-    public void eliminaAdmision(AdmisionTO admision) throws Exception {
-        Integer idAdmision=admision.getIdAdmision();       
-        em.remove(em.find(Admision.class, idAdmision));
-        em.flush();
-    }
+//    @Override
+//    public void eliminaAdmision(AdmisionTO admision) throws Exception {
+//        Integer idAdmision=admision.getIdAdmision();       
+//        em.remove(em.find(Admision.class, idAdmision));
+//        em.flush();
+//    }
     
     @Override
     public void modificarAdmisionTipo(AdmisionTipoTO admision)throws Exception{

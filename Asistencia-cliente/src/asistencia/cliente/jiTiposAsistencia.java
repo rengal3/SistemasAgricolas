@@ -389,6 +389,7 @@ public final class jiTiposAsistencia extends javax.swing.JInternalFrame {
         
         if(editar==true){
         int mostrar,id;
+        boolean most;
         String descripedit,siglaedit;
         int aux = jtabla.getSelectedRow();
        
@@ -401,8 +402,16 @@ public final class jiTiposAsistencia extends javax.swing.JInternalFrame {
                 siglaedit=jtfsigla.getText();
                 id=Integer.parseInt(jtabla.getValueAt(aux, 0).toString());
                 System.out.println("id "+id);
-                mostrar=Integer.parseInt(jtabla.getValueAt(aux,3).toString());
-                System.out.println("mostrar "+mostrar);
+                most=Boolean.parseBoolean(jtabla.getValueAt(aux,3).toString());
+                System.out.println("mostrar "+most);
+                if (most==true){
+                mostrar=1;
+                
+                } else {
+                mostrar=0;
+                }
+                
+                
              
              AdmisionTipoTO admision=new AdmisionTipoTO();
              admision.setId((int)id);

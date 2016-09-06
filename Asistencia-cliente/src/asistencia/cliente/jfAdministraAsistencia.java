@@ -7,7 +7,10 @@ package asistencia.cliente;
 
 import asistencia.delegate.GestionAsistenciaDelegate;
 import com.asistencia.TO.AdmisionTO;
+import com.asistencia.TO.AdmisionTipoTO;
+import com.helper.Utiles_MensajesDialogo;
 import com.helper.Utiles_Tabla;
+import com.jidesoft.hints.ListDataIntelliHints;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
@@ -28,6 +31,8 @@ public class jfAdministraAsistencia extends javax.swing.JFrame {
     private JTableBinding jTableBinding;
     private List<AdmisionTO> asistencias;
     private BindingGroup bindingGroup;
+    private ListDataIntelliHints intelliHintsTipoAdmision;
+    private AdmisionTipoTO tipoAdmisionBuscada;
     /**
      * Creates new form jfAdministraAsistencia
      */
@@ -47,6 +52,11 @@ public class jfAdministraAsistencia extends javax.swing.JFrame {
 //    
 //    }
 
+     private void cargaHintsIndependientes() throws Exception {
+        this.intelliHintsTipoAdmision = new ListDataIntelliHints(
+                this.jtfTipoAdmision, GestionAsistenciaDelegate.getInstance().getListaAdmisionTipoTO());
+                //((JList) this.intelliHintsTipoAdmision.getDelegateComponent()).setFixedCellWidth(306);
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -188,6 +198,31 @@ public class jfAdministraAsistencia extends javax.swing.JFrame {
       actualizaTablaAsistencias(asistencias);
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void jtfTipoAdmisionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtfTipoAdmisionActionPerformed
+        // TODO add your handling code here:
+        buscarAdmisionTipo();
+    }//GEN-LAST:event_jtfTipoAdmisionActionPerformed
+
+    private void buscarAdmisionTipo() {        
+        
+            try {
+                this.tipoAdmisionBuscada = (AdmisionTipoTO) this.intelliHintsTipoAdmision.getSelectedHint();
+            } catch (NullPointerException ex) {
+                this.tipoAdmisionBuscada = null;
+            }
+        if (this.tipoAdmisionBuscada == null) {
+            Utiles_MensajesDialogo.mensajeError("Elija un Tipo de Admision de la Lista Desplegable");
+            this.jtfTipoAdmision.setText("");
+            this.tipoAdmisionBuscada = null;
+        } else {
+
+            this.jtfTipoAdmision.setText(
+                    this.tipoAdmisionBuscada.getSigla()+" - "+this.tipoAdmisionBuscada.getDescripcion());
+            System.out.println(this.tipoAdmisionBuscada.getSigla()+" - "+this.tipoAdmisionBuscada.getDescripcion());
+           //aplicar operaciones de aplicar filtros en la tabla
+        }
+
+    }
      private void actualizaTablaAsistencias(List<AdmisionTO> aasistencias_tmp){
         this.bindingGroup = new BindingGroup();
         this.jTableBinding = SwingBindings.createJTableBinding(AutoBinding.UpdateStrategy.READ, aasistencias_tmp, this.jtAsistencias);

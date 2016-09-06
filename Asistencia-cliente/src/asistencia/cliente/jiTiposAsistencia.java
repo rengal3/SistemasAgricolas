@@ -401,14 +401,14 @@ public final class jiTiposAsistencia extends javax.swing.JInternalFrame {
                 siglaedit=jtfsigla.getText();
                 id=Integer.parseInt((String)jtabla.getValueAt(aux, 0));
                 System.out.println("id "+id);
-                mostrar=Integer.parseInt((String)jtabla.getValueAt(aux,3));
+                mostrar=Integer.parseInt(jtabla.getValueAt(aux,3).toString());
                 System.out.println("mostrar "+mostrar);
              
              AdmisionTipoTO admision=new AdmisionTipoTO();
              admision.setId((int)id);
              admision.setDescripcion(descripedit);
              admision.setSigla(siglaedit);
-             admision.setMostrar(mostrar);
+             admision.setMostrar((int)mostrar);
              try{
              
               GestionAsistenciaDelegate.getInstance().modificarAdmisionTipo(admision);

@@ -17,7 +17,7 @@ import javax.ejb.Local;
 @Local
 public interface AsistenciaBusinessLocal {
 
-    boolean insertarAdmisionTipo(AdmisionTipoTO admision) throws Exception;
+    void insertarAdmisionTipo(AdmisionTipoTO admision) throws Exception;
     List<AdmisionTipoTO> getAdmisionTipoTO() throws Exception;
     List<AdmisionTO> getListaAdmision() throws Exception ;
     void modificarAdmisionTipo(AdmisionTipoTO admision)throws Exception;

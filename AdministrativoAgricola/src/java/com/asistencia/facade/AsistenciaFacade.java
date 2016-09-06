@@ -23,8 +23,8 @@ public class AsistenciaFacade implements AsistenciaFacadeRemote {
     AsistenciaBusinessLocal asistenciaBusiness;
     
     @Override
-    public boolean insertarAdmisionTipo(AdmisionTipoTO admision) throws Exception {
-        return asistenciaBusiness.insertarAdmisionTipo(admision);
+    public void insertarAdmisionTipo(AdmisionTipoTO admision) throws Exception {
+        asistenciaBusiness.insertarAdmisionTipo(admision);
     }
 
     @Override

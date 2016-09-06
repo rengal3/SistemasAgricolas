@@ -17,11 +17,14 @@ import javax.ejb.Local;
 @Local
 public interface AsistenciaDAOLocal {
 
-    boolean insertarAdmisionTipo(AdmisionTipoTO admisionTipo) throws Exception;
+    void insertarAdmisionTipo(AdmisionTipoTO admisionTipo) throws Exception;
 
     List<AdmisionTipoTO> getAdmisionTipoTO() throws Exception;
 
     List<AdmisionTO> getListaAdmision() throws Exception;
-    void modificarAdmisionTipo(AdmisionTipoTO admision)throws Exception;
-    void eliminaAdmisionTipos(AdmisionTipoTO admision)throws Exception;
+
+    void modificaAdmision(AdmisionTO admision) throws Exception;
+
+    void eliminaAdmision(AdmisionTO admision) throws Exception;
+    
 }

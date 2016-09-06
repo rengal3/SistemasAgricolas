@@ -399,7 +399,7 @@ public final class jiTiposAsistencia extends javax.swing.JInternalFrame {
         } else {
                 descripedit=jtfdescripcion.getText();
                 siglaedit=jtfsigla.getText();
-                id=Integer.parseInt((String)jtabla.getValueAt(aux, 0));
+                id=Integer.parseInt(jtabla.getValueAt(aux, 0).toString());
                 System.out.println("id "+id);
                 mostrar=Integer.parseInt(jtabla.getValueAt(aux,3).toString());
                 System.out.println("mostrar "+mostrar);

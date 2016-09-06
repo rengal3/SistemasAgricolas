@@ -17,7 +17,7 @@ import javax.ejb.Remote;
 @Remote
 public interface AsistenciaFacadeRemote {
 
-    boolean insertarAdmisionTipo(AdmisionTipoTO admision) throws Exception;
+    void insertarAdmisionTipo(AdmisionTipoTO admision) throws Exception;
 
     List<AdmisionTipoTO> getListaAdmisionTipoTO() throws Exception;
     

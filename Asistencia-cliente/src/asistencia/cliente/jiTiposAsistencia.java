@@ -464,9 +464,9 @@ public final class jiTiposAsistencia extends javax.swing.JInternalFrame {
                 admision1.setMostrar(1);        
                 try{
           
-                    if(GestionAsistenciaDelegate.getInstance().insertaAdmisionTipo(admision1)){
+                    GestionAsistenciaDelegate.getInstance().insertaAdmisionTipo(admision1);
                     JOptionPane.showMessageDialog(null,"SE GUARDO CORRECTAMENTE");
-                }
+                
                 }catch(Exception e){
                     e.printStackTrace();
                 }

@@ -92,6 +92,8 @@ public class jfAdministraAsistencia extends javax.swing.JFrame {
         jButton3 = new javax.swing.JButton();
         jComboBox1 = new javax.swing.JComboBox();
         jButton4 = new javax.swing.JButton();
+        jtfTipoAdmision = new javax.swing.JTextField();
+        jLabel9 = new javax.swing.JLabel();
 
         jLabel3.setText("jLabel3");
 
@@ -121,7 +123,7 @@ public class jfAdministraAsistencia extends javax.swing.JFrame {
 
         jPanel2.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 16, 730, 140));
 
-        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 290, 750, -1));
+        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(74, 5, -1, -1));
 
         jButton1.setText("Consultar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -129,7 +131,7 @@ public class jfAdministraAsistencia extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 440, -1, -1));
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(815, 71, -1, -1));
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("TRABAJADOR"));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -152,35 +154,45 @@ public class jfAdministraAsistencia extends javax.swing.JFrame {
         jTextField1.setText(" ");
         jPanel1.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 20, 90, 20));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 10, 370, 160));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 166, -1, -1));
 
         jLabel5.setText("NOMBRE:");
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 180, -1, -1));
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(325, 225, -1, -1));
 
         jLabel6.setText("TIPO DE ASISTENCIA:");
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 210, -1, -1));
-        getContentPane().add(jtxtdni, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 180, 100, -1));
-        getContentPane().add(jtxtasistencia, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 210, 120, -1));
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(376, 225, -1, -1));
+        getContentPane().add(jtxtdni, new org.netbeans.lib.awtextra.AbsoluteConstraints(488, 222, 50, -1));
+        getContentPane().add(jtxtasistencia, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 180, 50, -1));
 
         jLabel7.setText("HORA DE INGRESO:");
-        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 180, -1, -1));
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 230, -1, -1));
 
         jLabel8.setText("HORA DE SALIDA:");
-        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 210, -1, -1));
-        getContentPane().add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 180, 120, -1));
-        getContentPane().add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 210, 120, -1));
+        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 220, -1, -1));
+        getContentPane().add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 220, 50, -1));
+        getContentPane().add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 220, 50, -1));
 
         jButton2.setText("GUARDAR");
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 180, -1, -1));
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 290, -1, -1));
 
         jButton3.setText("CANCELAR");
-        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 210, -1, -1));
+        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 290, -1, -1));
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        getContentPane().add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 180, 200, -1));
+        getContentPane().add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 290, -1, -1));
 
         jButton4.setText("APLICAR");
-        getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 210, -1, -1));
+        getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(406, 304, -1, -1));
+
+        jtfTipoAdmision.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jtfTipoAdmisionActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jtfTipoAdmision, new org.netbeans.lib.awtextra.AbsoluteConstraints(486, 305, -1, -1));
+
+        jLabel9.setText("Tipo Admision");
+        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(497, 308, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -338,6 +350,7 @@ public class jfAdministraAsistencia extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane2;
@@ -348,6 +361,7 @@ public class jfAdministraAsistencia extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField5;
     private javax.swing.JTable jtAsistencias;
+    private javax.swing.JTextField jtfTipoAdmision;
     private javax.swing.JTextField jtxtasistencia;
     private javax.swing.JTextField jtxtdni;
     // End of variables declaration//GEN-END:variables

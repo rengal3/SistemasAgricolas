@@ -49,7 +49,7 @@ public class GestionAsistenciaDelegate {
   }
 
     public void insertaAdmisionTipo(AdmisionTipoTO admision) throws Exception {
-        gestionFacade.insertarAdmisionTipo(admision);
+        //gestionFacade.insertarAdmisionTipo(admision);
     }
     /*
     public List<AdmisionTipoTO> getListaAdmisionTipoTO() throws Exception {

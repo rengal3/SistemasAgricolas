@@ -1,0 +1,21 @@
+K 26
+svn:wc:ra_dav:activity-url
+V 14
+/svn/!svn/act/
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/!svn/ver/487/trunk/SeguridadAdministracion-ejb
+END
+dir_conflicts.prej
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/!svn/ver/11/trunk/SeguridadAdministracion-ejb/dir_conflicts.prej
+END
+build.xml
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/!svn/ver/11/trunk/SeguridadAdministracion-ejb/build.xml
+END

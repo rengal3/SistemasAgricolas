@@ -47,8 +47,8 @@ public class jfAdministraAsistencia extends javax.swing.JFrame {
     }
 
      private void cargaHintsIndependientes() throws Exception {
-        this.intelliHintsTipoAdmision = new ListDataIntelliHints(
-                this.jtfTipoAdmision, GestionAsistenciaDelegate.getInstance().getListaAdmisionTipoTO());
+        /*this.intelliHintsTipoAdmision = new ListDataIntelliHints(
+                this.jtfTipoAdmision, GestionAsistenciaDelegate.getInstance().getListaAdmisionTipoTO());*/
                 //((JList) this.intelliHintsTipoAdmision.getDelegateComponent()).setFixedCellWidth(306);
     }
     /**
@@ -155,7 +155,7 @@ public class jfAdministraAsistencia extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         try {
             // TODO add your handling code here:
-            this.asistencias=GestionAsistenciaDelegate.getInstance().getListaAdmision();
+           // this.asistencias=GestionAsistenciaDelegate.getInstance().getListaAdmision();
         } catch (Exception ex) {
             Logger.getLogger(jfAdministraAsistencia.class.getName()).log(Level.SEVERE, null, ex);
             ex.printStackTrace();

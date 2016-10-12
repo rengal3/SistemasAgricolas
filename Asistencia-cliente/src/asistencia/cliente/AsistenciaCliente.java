@@ -30,10 +30,10 @@ public class AsistenciaCliente {
         apellido="Vilchez";
         
         try {
-            List<AdmisionTipoTO> lista=GestionAsistenciaDelegate.getInstance().getListaAdmisionTipoTO();
+            /*List<AdmisionTipoTO> lista=GestionAsistenciaDelegate.getInstance().getListaAdmisionTipoTO();
             for(AdmisionTipoTO admision:lista){
                 System.out.println(admision.getId()+"-"+admision.getDescripcion()+"-"+admision.getSigla());
-            }
+            }*/
         } catch (Exception ex) {
             ex.printStackTrace();
             Logger.getLogger(AsistenciaCliente.class.getName()).log(Level.SEVERE, null, ex);

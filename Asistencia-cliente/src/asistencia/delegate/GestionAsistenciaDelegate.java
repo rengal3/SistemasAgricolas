@@ -48,17 +48,6 @@ public class GestionAsistenciaDelegate {
     return gestionDelegate;
   }
 
-    public void insertaAdmisionTipo(AdmisionTipoTO admision) throws Exception {
-        gestionFacade.insertarAdmisionTipo(admision);
-    }
-
-    public List<AdmisionTipoTO> getListaAdmisionTipoTO() throws Exception {
-        return gestionFacade.getListaAdmisionTipoTO();
-    }
-
-    public List<AdmisionTO> getListaAdmision() throws Exception {
-        return gestionFacade.getListaAdmision();
-    }
-
+   
    
 }

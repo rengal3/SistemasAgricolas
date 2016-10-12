@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package asistencia.cliente;
+package asistencia.cliente.asistencias;
 
 import com.javaswingcomponents.clock.analog.JSCAnalogClock;
 import java.util.Calendar;

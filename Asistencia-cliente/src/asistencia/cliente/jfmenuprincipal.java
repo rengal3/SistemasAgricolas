@@ -81,10 +81,7 @@ public class jfmenuprincipal extends javax.swing.JFrame {
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
         // TODO add your handling code here:
-       jiTiposAsistencia TA=new jiTiposAsistencia();
-        
-        jdpinternal.add(TA);
-        TA.show();
+      
         
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 

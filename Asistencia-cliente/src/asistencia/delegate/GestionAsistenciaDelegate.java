@@ -51,7 +51,7 @@ public class GestionAsistenciaDelegate {
     public void insertaAdmisionTipo(AdmisionTipoTO admision) throws Exception {
         gestionFacade.insertarAdmisionTipo(admision);
     }
-
+    /*
     public List<AdmisionTipoTO> getListaAdmisionTipoTO() throws Exception {
         return gestionFacade.getListaAdmisionTipoTO();
     }
@@ -68,7 +68,7 @@ public class GestionAsistenciaDelegate {
          gestionFacade.eliminaAdmisionTipos(admision1);
 //         System.out.println("id gestionasistencia delegate: adminsion "+admision1);
      }
-    
+    */
     
 
    

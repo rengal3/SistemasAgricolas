@@ -63,7 +63,7 @@ public class AdmisionTipoTO implements Serializable{
     
     @Override
     public String toString() {
-        return sigla+" - "+descripcion ;
+        return sigla+" - "+descripcion+ "id tipos AdmisionTipoTO "+id ;
     }
     
 }

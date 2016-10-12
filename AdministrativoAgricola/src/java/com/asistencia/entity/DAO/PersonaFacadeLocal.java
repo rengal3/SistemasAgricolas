@@ -5,7 +5,7 @@
  */
 package com.asistencia.entity.DAO;
 
-import com.asistencia.entity.TipoObrero;
+import com.asistencia.entity.Persona;
 import java.util.List;
 import javax.ejb.Local;
 
@@ -14,19 +14,19 @@ import javax.ejb.Local;
  * @author Renato
  */
 @Local
-public interface TipoObreroFacadeLocal {
+public interface PersonaFacadeLocal {
 
-    void create(TipoObrero tipoObrero);
+    void create(Persona persona);
 
-    void edit(TipoObrero tipoObrero);
+    void edit(Persona persona);
 
-    void remove(TipoObrero tipoObrero);
+    void remove(Persona persona);
 
-    TipoObrero find(Object id);
+    Persona find(Object id);
 
-    List<TipoObrero> findAll();
+    List<Persona> findAll();
 
-    List<TipoObrero> findRange(int[] range);
+    List<Persona> findRange(int[] range);
 
     int count();
     

@@ -5,7 +5,7 @@
  */
 package com.asistencia.entity.DAO;
 
-import com.asistencia.entity.Comisiones;
+import com.asistencia.entity.Trabajador;
 import java.util.List;
 import javax.ejb.Local;
 
@@ -14,19 +14,19 @@ import javax.ejb.Local;
  * @author Renato
  */
 @Local
-public interface ComisionesFacadeLocal {
+public interface TrabajadorFacadeLocal {
 
-    void create(Comisiones comisiones);
+    void create(Trabajador trabajador);
 
-    void edit(Comisiones comisiones);
+    void edit(Trabajador trabajador);
 
-    void remove(Comisiones comisiones);
+    void remove(Trabajador trabajador);
 
-    Comisiones find(Object id);
+    Trabajador find(Object id);
 
-    List<Comisiones> findAll();
+    List<Trabajador> findAll();
 
-    List<Comisiones> findRange(int[] range);
+    List<Trabajador> findRange(int[] range);
 
     int count();
     

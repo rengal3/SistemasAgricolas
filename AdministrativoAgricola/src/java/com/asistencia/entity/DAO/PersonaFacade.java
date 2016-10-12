@@ -5,7 +5,7 @@
  */
 package com.asistencia.entity.DAO;
 
-import com.asistencia.entity.AdmisionTipos;
+import com.asistencia.entity.Persona;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -15,7 +15,7 @@ import javax.persistence.PersistenceContext;
  * @author Renato
  */
 @Stateless
-public class AdmisionTiposFacade extends AbstractFacade<AdmisionTipos> implements AdmisionTiposFacadeLocal {
+public class PersonaFacade extends AbstractFacade<Persona> implements PersonaFacadeLocal {
 
     @PersistenceContext(unitName = "AdministrativoAgricolaPU")
     private EntityManager em;
@@ -25,8 +25,8 @@ public class AdmisionTiposFacade extends AbstractFacade<AdmisionTipos> implement
         return em;
     }
 
-    public AdmisionTiposFacade() {
-        super(AdmisionTipos.class);
+    public PersonaFacade() {
+        super(Persona.class);
     }
     
 }

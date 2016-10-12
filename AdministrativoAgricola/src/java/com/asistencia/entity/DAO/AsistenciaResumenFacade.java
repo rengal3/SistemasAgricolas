@@ -5,7 +5,7 @@
  */
 package com.asistencia.entity.DAO;
 
-import com.asistencia.entity.Dias;
+import com.asistencia.entity.AsistenciaResumen;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -15,7 +15,7 @@ import javax.persistence.PersistenceContext;
  * @author Renato
  */
 @Stateless
-public class DiasFacade extends AbstractFacade<Dias> implements DiasFacadeLocal {
+public class AsistenciaResumenFacade extends AbstractFacade<AsistenciaResumen> implements AsistenciaResumenFacadeLocal {
 
     @PersistenceContext(unitName = "AdministrativoAgricolaPU")
     private EntityManager em;
@@ -25,8 +25,8 @@ public class DiasFacade extends AbstractFacade<Dias> implements DiasFacadeLocal 
         return em;
     }
 
-    public DiasFacade() {
-        super(Dias.class);
+    public AsistenciaResumenFacade() {
+        super(AsistenciaResumen.class);
     }
     
 }

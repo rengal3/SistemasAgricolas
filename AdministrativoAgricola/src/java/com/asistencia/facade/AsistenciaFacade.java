@@ -22,21 +22,6 @@ public class AsistenciaFacade implements AsistenciaFacadeRemote {
     @EJB
     AsistenciaBusinessLocal asistenciaBusiness;
     
-    @Override
-    public void insertarAdmisionTipo(AdmisionTipoTO admision) throws Exception {
-        asistenciaBusiness.insertarAdmisionTipo(admision);
-    }
-
-    @Override
-    public List<AdmisionTipoTO> getListaAdmisionTipoTO() throws Exception {
-        return asistenciaBusiness.getAdmisionTipoTO();
-    }
-
-    @Override
-    public List<AdmisionTO> getListaAdmision() throws Exception {
-        return asistenciaBusiness.getListaAdmision();
-    }
-
-    
+   
     
 }

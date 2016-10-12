@@ -5,7 +5,7 @@
  */
 package com.asistencia.entity.DAO;
 
-import com.asistencia.entity.AdmisionHorario;
+import com.asistencia.entity.PapeletaSalida;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -15,7 +15,7 @@ import javax.persistence.PersistenceContext;
  * @author Renato
  */
 @Stateless
-public class AdmisionHorarioFacade extends AbstractFacade<AdmisionHorario> implements AdmisionHorarioFacadeLocal {
+public class PapeletaSalidaFacade extends AbstractFacade<PapeletaSalida> implements PapeletaSalidaFacadeLocal {
 
     @PersistenceContext(unitName = "AdministrativoAgricolaPU")
     private EntityManager em;
@@ -25,8 +25,8 @@ public class AdmisionHorarioFacade extends AbstractFacade<AdmisionHorario> imple
         return em;
     }
 
-    public AdmisionHorarioFacade() {
-        super(AdmisionHorario.class);
+    public PapeletaSalidaFacade() {
+        super(PapeletaSalida.class);
     }
     
 }

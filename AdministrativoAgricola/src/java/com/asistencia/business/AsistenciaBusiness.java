@@ -6,9 +6,10 @@
 package com.asistencia.business;
 
 import com.asistencia.DAO.AsistenciaDAOLocal;
-import com.asistencia.TO.AdmisionTO;
-import com.asistencia.TO.AdmisionTipoTO;
-import java.util.List;
+import com.asistencia.entity.AsistenciaResumen;
+import com.asistencia.entity.AsistenciaResumenPK;
+import com.asistencia.entity.DAO.AsistenciaResumenFacadeLocal;
+import com.asistencia.entity.DAO.HorariosFacadeLocal;
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
 
@@ -22,21 +23,23 @@ public class AsistenciaBusiness implements AsistenciaBusinessLocal {
     @EJB
     AsistenciaDAOLocal asistenciaDao;
     
-    @Override
-    public void insertarAdmisionTipo(AdmisionTipoTO admision) throws Exception {
-         asistenciaDao.insertarAdmisionTipo(admision);
-    }
+    @EJB
+    AsistenciaResumenFacadeLocal asistenciaResumenDAO;
+    
+    @EJB
+    HorariosFacadeLocal horariosDAO;
 
     @Override
-    public List<AdmisionTipoTO> getAdmisionTipoTO() throws Exception {
-        return asistenciaDao.getAdmisionTipoTO();
+    public void procesarRegistroMarcacion(String idempresa,String dni,String fecha,String hora) throws Exception{
+        
+        
+        AsistenciaResumen marcacion=new AsistenciaResumen();
+        marcacion.setAsistenciaResumenPK(new AsistenciaResumenPK());
+        
     }
+    
 
-    @Override
-    public List<AdmisionTO> getListaAdmision() throws Exception {
-        return asistenciaDao.getListaAdmision();
-    }
-
+    
     
     
 }

@@ -5,7 +5,7 @@
  */
 package com.asistencia.entity.DAO;
 
-import com.asistencia.entity.Personal;
+import com.asistencia.entity.Horarios;
 import java.util.List;
 import javax.ejb.Local;
 
@@ -14,19 +14,19 @@ import javax.ejb.Local;
  * @author Renato
  */
 @Local
-public interface PersonalFacadeLocal {
+public interface HorariosFacadeLocal {
 
-    void create(Personal personal);
+    void create(Horarios horarios);
 
-    void edit(Personal personal);
+    void edit(Horarios horarios);
 
-    void remove(Personal personal);
+    void remove(Horarios horarios);
 
-    Personal find(Object id);
+    Horarios find(Object id);
 
-    List<Personal> findAll();
+    List<Horarios> findAll();
 
-    List<Personal> findRange(int[] range);
+    List<Horarios> findRange(int[] range);
 
     int count();
     

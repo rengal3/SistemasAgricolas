@@ -5,7 +5,7 @@
  */
 package com.asistencia.entity.DAO;
 
-import com.asistencia.entity.Dias;
+import com.asistencia.entity.PapeletaSalida;
 import java.util.List;
 import javax.ejb.Local;
 
@@ -14,19 +14,19 @@ import javax.ejb.Local;
  * @author Renato
  */
 @Local
-public interface DiasFacadeLocal {
+public interface PapeletaSalidaFacadeLocal {
 
-    void create(Dias dias);
+    void create(PapeletaSalida papeletaSalida);
 
-    void edit(Dias dias);
+    void edit(PapeletaSalida papeletaSalida);
 
-    void remove(Dias dias);
+    void remove(PapeletaSalida papeletaSalida);
 
-    Dias find(Object id);
+    PapeletaSalida find(Object id);
 
-    List<Dias> findAll();
+    List<PapeletaSalida> findAll();
 
-    List<Dias> findRange(int[] range);
+    List<PapeletaSalida> findRange(int[] range);
 
     int count();
     

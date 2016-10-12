@@ -17,14 +17,8 @@ import javax.ejb.Local;
 @Local
 public interface AsistenciaDAOLocal {
 
-    void insertarAdmisionTipo(AdmisionTipoTO admisionTipo) throws Exception;
+    void insertarMarcacion(String idempresa, String dni, String fecha, String hora) throws Exception;
 
-    List<AdmisionTipoTO> getAdmisionTipoTO() throws Exception;
-
-    List<AdmisionTO> getListaAdmision() throws Exception;
-
-    void modificaAdmision(AdmisionTO admision) throws Exception;
-
-    void eliminaAdmision(AdmisionTO admision) throws Exception;
+   
     
 }

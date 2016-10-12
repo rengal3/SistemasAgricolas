@@ -17,8 +17,7 @@ import javax.ejb.Local;
 @Local
 public interface AsistenciaBusinessLocal {
 
-    void insertarAdmisionTipo(AdmisionTipoTO admision) throws Exception;
-    List<AdmisionTipoTO> getAdmisionTipoTO() throws Exception;
-    List<AdmisionTO> getListaAdmision() throws Exception ;
-    
+    void procesarRegistroMarcacion(String idempresa,String dni,String fecha,String hora) throws Exception;
+
+   
 }

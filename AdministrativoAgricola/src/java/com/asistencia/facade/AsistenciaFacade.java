@@ -21,6 +21,11 @@ public class AsistenciaFacade implements AsistenciaFacadeRemote {
 
     @EJB
     AsistenciaBusinessLocal asistenciaBusiness;
+
+    @Override
+    public void procesarRegistroMarcacion(String idempresa, String dni, String fecha, String hora) throws Exception {
+        asistenciaBusiness.procesarRegistroMarcacion(idempresa, dni, fecha, hora);
+    }
     
    
     

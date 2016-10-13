@@ -31,13 +31,15 @@ import javax.validation.constraints.Size;
  * @author Renato
  */
 @Entity
-@Table(name = "tipo", catalog = "Asistencia", schema = "asistencia")
+@Table(name = "tipo", schema = "asistencia")
 @NamedQueries({
     @NamedQuery(name = "Tipo.findAll", query = "SELECT t FROM Tipo t"),
     @NamedQuery(name = "Tipo.findByIdTablaTipo", query = "SELECT t FROM Tipo t WHERE t.idTablaTipo = :idTablaTipo"),
     @NamedQuery(name = "Tipo.findByTabla", query = "SELECT t FROM Tipo t WHERE t.tabla = :tabla"),
     @NamedQuery(name = "Tipo.findByDescripcionCampo", query = "SELECT t FROM Tipo t WHERE t.descripcionCampo = :descripcionCampo"),
     @NamedQuery(name = "Tipo.findByCodigo", query = "SELECT t FROM Tipo t WHERE t.codigo = :codigo"),
+    @NamedQuery(name = "Tipo.findByTablaCodigo", query = "SELECT t FROM Tipo t WHERE "
+            + "trim(t.tabla) = :tabla and t.codigo = :codigo and trim(t.idEmpresa.idEmpresa) = :idempresa "),
     @NamedQuery(name = "Tipo.findByDescripcionValor", query = "SELECT t FROM Tipo t WHERE t.descripcionValor = :descripcionValor"),
     @NamedQuery(name = "Tipo.findByCantidad", query = "SELECT t FROM Tipo t WHERE t.cantidad = :cantidad"),
     @NamedQuery(name = "Tipo.findByCodSunat", query = "SELECT t FROM Tipo t WHERE t.codSunat = :codSunat")})

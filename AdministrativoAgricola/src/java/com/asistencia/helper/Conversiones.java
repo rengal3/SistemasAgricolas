@@ -5,13 +5,9 @@
  */
 package com.asistencia.helper;
 
-import com.asistencia.TO.AdmisionTO;
-import com.asistencia.TO.AdmisionTipoTO;
-
-import java.math.BigDecimal;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
+import com.asistencia.TO.TipoTO;
+import com.asistencia.entity.Empresa;
+import com.asistencia.entity.Tipo;
 
 /**
  *
@@ -19,6 +15,16 @@ import java.util.List;
  */
 public class Conversiones {
     
-    
+    public static Tipo convertirToTipo_TipoTO(TipoTO tip) {
+        Tipo retorno = new Tipo(tip.getId_tabla_tipo());
+        retorno.setCodigo(tip.getCodigo());
+        retorno.setDescripcionCampo(tip.getDescripcion_campo());
+        retorno.setDescripcionValor(tip.getDescripcion_valor());
+        retorno.setTabla(tip.getTabla());
+        retorno.setCantidad(tip.getCantidad());
+        retorno.setCodSunat(tip.getCodigo_sunat());
+        retorno.setIdEmpresa(new Empresa(tip.getId_empresa()));
+        return retorno;
+    }
      
 }

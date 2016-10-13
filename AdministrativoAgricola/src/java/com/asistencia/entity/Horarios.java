@@ -30,7 +30,7 @@ import javax.validation.constraints.Size;
  * @author Renato
  */
 @Entity
-@Table(name = "horarios", catalog = "Asistencia", schema = "asistencia")
+@Table(name = "horarios", schema = "asistencia")
 @NamedQueries({
     @NamedQuery(name = "Horarios.findAll", query = "SELECT h FROM Horarios h"),
     @NamedQuery(name = "Horarios.findByIdHorario", query = "SELECT h FROM Horarios h WHERE h.idHorario = :idHorario"),
@@ -97,7 +97,7 @@ public class Horarios implements Serializable {
     @NotNull
     @Column(name = "genera_hnocturna", nullable = false)
     private boolean generaHnocturna;
-    @JoinTable(name = "detalle_horario_tipotrabajador", joinColumns = {
+    @JoinTable(name = "asistencia.detalle_horario_tipotrabajador", joinColumns = {
         @JoinColumn(name = "id_horario", referencedColumnName = "id_horario", nullable = false)}, inverseJoinColumns = {
         @JoinColumn(name = "id_tipo_trabajador", referencedColumnName = "id_tabla_tipo", nullable = false)})
     @ManyToMany(fetch = FetchType.LAZY)

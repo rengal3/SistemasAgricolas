@@ -48,6 +48,11 @@ public class GestionAsistenciaDelegate {
     return gestionDelegate;
   }
 
+    public void procesarRegistroMarcacion(String idempresa, String dni, String fecha, String hora) throws Exception {
+        gestionFacade.procesarRegistroMarcacion(idempresa, dni, fecha, hora);
+    }
+
+    
     public void insertaAdmisionTipo(AdmisionTipoTO admision) throws Exception {
         //gestionFacade.insertarAdmisionTipo(admision);
     }

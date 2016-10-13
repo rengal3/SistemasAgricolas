@@ -17,7 +17,7 @@ import javax.ejb.Remote;
 @Remote
 public interface AsistenciaFacadeRemote {
 
-
+ void procesarRegistroMarcacion(String idempresa, String dni, String fecha, String hora) throws Exception ;
    
     
 }

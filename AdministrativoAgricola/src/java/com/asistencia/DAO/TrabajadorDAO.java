@@ -5,7 +5,7 @@
  */
 package com.asistencia.DAO;
 
-import com.asistencia.entity.Horarios;
+import com.asistencia.entity.Trabajador;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
@@ -16,23 +16,24 @@ import javax.persistence.PersistenceContext;
  * @author Renato
  */
 @Stateless
-public class HorariosDAO implements HorariosDAOLocal {
-
+public class TrabajadorDAO implements TrabajadorDAOLocal {
     @PersistenceContext(unitName = "AdministrativoAgricolaPU")
     private EntityManager em;
-    
-    @Override
-    public Horarios getHorarioByDNI(String dni) throws Exception {
-        try{
-            return em.createQuery("select h from Horarios h  JOIN  h.tipoList t JOIN  t.trabajadorList1 tr"
-                + " where tr.numDocumento=:dni", Horarios.class).setParameter("dni", dni).getSingleResult();
-        }catch(NoResultException e){
-            return null;
-        }catch(Exception ef){
-            throw ef;
-        }
-    }
 
- 
+    @Override
+    public Trabajador buscarTrabajadorPorDNI(String dni) throws Exception {
+        try{
+            Trabajador retorno= em.createNamedQuery("Trabajador.findByNumDocumento",Trabajador.class).
+                setParameter("numDocumento", dni).getSingleResult();
+                return retorno;
+            }catch(NoResultException e){
+                return null;
+            }catch(Exception ef){
+                throw ef;
+            }
+        
+    }
+    
+    
     
 }

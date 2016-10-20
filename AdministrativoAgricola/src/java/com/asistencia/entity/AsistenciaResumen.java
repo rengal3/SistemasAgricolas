@@ -53,60 +53,56 @@ public class AsistenciaResumen implements Serializable {
     private static final long serialVersionUID = 1L;
     @EmbeddedId
     protected AsistenciaResumenPK asistenciaResumenPK;
-    @Basic(optional = false)
-    @NotNull
+    
     @Size(min = 1, max = 100)
-    @Column(name = "observacion", nullable = false, length = 100)
+    @Column(name = "observacion", length = 100)
     private String observacion;
     // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
-    @Basic(optional = false)
-    @NotNull
-    @Column(name = "horas_ordinarias", nullable = false, precision = 14, scale = 2)
+    
+    @Column(name = "horas_ordinarias", precision = 14, scale = 2)
     private BigDecimal horasOrdinarias;
-    @Basic(optional = false)
-    @NotNull
-    @Column(name = "horas_nocturnas", nullable = false, precision = 14, scale = 2)
+    
+    @Column(name = "horas_nocturnas", precision = 14, scale = 2)
     private BigDecimal horasNocturnas;
-    @Basic(optional = false)
-    @NotNull
-    @Column(name = "horas_extra_25", nullable = false, precision = 14, scale = 2)
+    
+    @Column(name = "horas_extra_25", precision = 14, scale = 2)
     private BigDecimal horasExtra25;
-    @Basic(optional = false)
-    @NotNull
-    @Column(name = "horas_extra_35", nullable = false, precision = 14, scale = 2)
+    
+    @Column(name = "horas_extra_35", precision = 14, scale = 2)
     private BigDecimal horasExtra35;
-    @Basic(optional = false)
-    @NotNull
-    @Column(name = "dominical", nullable = false)
+    
+    @Column(name = "dominical")
     private boolean dominical;
+    
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 4)
     @Column(name = "anio", nullable = false, length = 4)
     private String anio;
+    
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 2)
     @Column(name = "mes", nullable = false, length = 2)
     private String mes;
+    
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 100)
-    @Column(name = "nombres", nullable = false, length = 100)
+    @Column(name = "nombres", nullable = false, length = 100) 
     private String nombres;
-    @Basic(optional = false)
-    @NotNull
-    @Column(name = "feriado", nullable = false)
+    
+    @Column(name = "feriado")
     private boolean feriado;
+    
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 5)
     @Column(name = "m1", nullable = false, length = 5)
     private String m1;
-    @Basic(optional = false)
-    @NotNull
+    
     @Size(min = 1, max = 5)
-    @Column(name = "m2", nullable = false, length = 5)
+    @Column(name = "m2",  length = 5)
     private String m2;
     @Size(max = 5)
     @Column(name = "m3", length = 5)
@@ -120,17 +116,21 @@ public class AsistenciaResumen implements Serializable {
     @Size(max = 5)
     @Column(name = "m6", length = 5)
     private String m6;
+    
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 15)
     @Column(name = "id_documento", nullable = false, length = 15)
     private String idDocumento;
+    
     @JoinColumn(name = "id_trabajador", referencedColumnName = "id_trabajador", nullable = false, insertable = false, updatable = false)
     @ManyToOne(optional = false, fetch = FetchType.LAZY)
     private Trabajador trabajador;
+    
     @JoinColumn(name = "id_papeleta", referencedColumnName = "id_papeleta")
     @ManyToOne(fetch = FetchType.LAZY)
     private PapeletaSalida idPapeleta;
+    
     @JoinColumn(name = "id_empresa", referencedColumnName = "id_empresa", nullable = false, insertable = false, updatable = false)
     @ManyToOne(optional = false, fetch = FetchType.LAZY)
     private Empresa empresa;

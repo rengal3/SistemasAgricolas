@@ -5,10 +5,8 @@
  */
 package com.asistencia.facade;
 
-import com.asistencia.TO.AdmisionTO;
-import com.asistencia.TO.AdmisionTipoTO;
+import com.asistencia.TO.MensajesUsuario;
 import com.asistencia.business.AsistenciaBusinessLocal;
-import java.util.List;
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
 
@@ -23,8 +21,8 @@ public class AsistenciaFacade implements AsistenciaFacadeRemote {
     AsistenciaBusinessLocal asistenciaBusiness;
 
     @Override
-    public void procesarRegistroMarcacion(String idempresa, String dni, String fecha, String hora) throws Exception {
-        asistenciaBusiness.procesarRegistroMarcacion(idempresa, dni, fecha, hora);
+    public MensajesUsuario procesarRegistroMarcacion(String idempresa, String dni, String fecha, String hora) throws Exception {
+        return asistenciaBusiness.procesarRegistroMarcacion(idempresa, dni, fecha, hora);
     }
     
    

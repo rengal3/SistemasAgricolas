@@ -3,9 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.asistencia.business;
+package com.asistencia.DAO;
 
-import com.asistencia.TO.MensajesUsuario;
+import com.asistencia.entity.Tipo;
+import java.util.List;
 import javax.ejb.Local;
 
 /**
@@ -13,9 +14,10 @@ import javax.ejb.Local;
  * @author Renato
  */
 @Local
-public interface AsistenciaBusinessLocal {
+public interface ObtenerParametrosSingletonLocal {
 
-    MensajesUsuario procesarRegistroMarcacion(String idempresa,String dni,String fecha,String hora) throws Exception;
+     List<Tipo> getListaTipos();
 
-   
+     void setListaTipos(List<Tipo> listaTipos);
+    
 }

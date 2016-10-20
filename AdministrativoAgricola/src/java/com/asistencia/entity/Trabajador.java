@@ -101,8 +101,8 @@ public class Trabajador implements Serializable {
     @JoinColumn(name = "id_tipo_educacion", referencedColumnName = "id_tabla_tipo", nullable = false)
     @ManyToOne(optional = false, fetch = FetchType.LAZY)
     private Tipo idTipoEducacion;
-    @JoinColumn(name = "id_persona", referencedColumnName = "id_persona")
-    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "id_persona", referencedColumnName = "id_persona", nullable = false)
+    @ManyToOne(fetch = FetchType.EAGER)
     private Persona idPersona;
     @JoinColumn(name = "id_empresa", referencedColumnName = "id_empresa", nullable = false)
     @ManyToOne(optional = false, fetch = FetchType.LAZY)

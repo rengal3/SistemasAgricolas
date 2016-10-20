@@ -6,6 +6,7 @@
 package asistencia.cliente.pruebas;
 
 import asistencia.delegate.GestionAsistenciaDelegate;
+import com.asistencia.TO.MensajesUsuario;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -17,7 +18,9 @@ public class PruebasMarcaciones {
     
     public static void main(String ar[]){
         try {
-            GestionAsistenciaDelegate.getInstance().procesarRegistroMarcacion("001", "43516825", "13/10/2016", "05:00");
+            //MensajesUsuario ret=GestionAsistenciaDelegate.getInstance().procesarRegistroMarcacion("001", "43516825", "08/10/2016", "12:15");
+            MensajesUsuario ret=GestionAsistenciaDelegate.getInstance().procesarRegistroMarcacion("001", "43468270", "08/10/2016", "12:15");
+            System.out.println(ret.getMensajeCabecera()+"\t"+ret.getMensajeCuerpo());
         } catch (Exception ex) {
             ex.printStackTrace();
         }

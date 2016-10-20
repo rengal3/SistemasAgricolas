@@ -128,13 +128,13 @@ public class jifAdministrarAsistenciaDiaria extends javax.swing.JInternalFrame {
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null, null}
+                {null, null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "Fecha", "Nombres", "H.Ordin.", "H.Noctur.", "HE 25%", "HE 35%", "M1", "M2", "M3", "M4", "M5", "M6"
+                "Fecha", "Nombres", "H. Tardanza", "H.Ordin.", "H.Noctur.", "HE 25%", "HE 35%", "M1", "M2", "M3", "M4", "M5", "M6"
             }
         ));
         jScrollPane1.setViewportView(jTable1);

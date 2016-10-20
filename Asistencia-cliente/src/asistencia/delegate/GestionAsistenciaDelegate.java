@@ -7,6 +7,7 @@ package asistencia.delegate;
 
 import com.asistencia.TO.AdmisionTO;
 import com.asistencia.TO.AdmisionTipoTO;
+import com.asistencia.TO.MensajesUsuario;
 import com.asistencia.facade.AsistenciaFacadeRemote;
 import java.util.List;
 import java.util.Properties;
@@ -48,8 +49,8 @@ public class GestionAsistenciaDelegate {
     return gestionDelegate;
   }
 
-    public void procesarRegistroMarcacion(String idempresa, String dni, String fecha, String hora) throws Exception {
-        gestionFacade.procesarRegistroMarcacion(idempresa, dni, fecha, hora);
+    public MensajesUsuario procesarRegistroMarcacion(String idempresa, String dni, String fecha, String hora) throws Exception {
+        return gestionFacade.procesarRegistroMarcacion(idempresa, dni, fecha, hora);
     }
 
     

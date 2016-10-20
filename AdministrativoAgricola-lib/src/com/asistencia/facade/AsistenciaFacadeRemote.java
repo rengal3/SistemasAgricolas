@@ -7,6 +7,7 @@ package com.asistencia.facade;
 
 import com.asistencia.TO.AdmisionTO;
 import com.asistencia.TO.AdmisionTipoTO;
+import com.asistencia.TO.MensajesUsuario;
 import java.util.List;
 import javax.ejb.Remote;
 
@@ -17,7 +18,7 @@ import javax.ejb.Remote;
 @Remote
 public interface AsistenciaFacadeRemote {
 
- void procesarRegistroMarcacion(String idempresa, String dni, String fecha, String hora) throws Exception ;
+ MensajesUsuario procesarRegistroMarcacion(String idempresa, String dni, String fecha, String hora) throws Exception ;
    
     
 }
